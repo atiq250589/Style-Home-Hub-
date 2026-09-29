@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Style & Home Hub – DIY calculators and clothing size guides</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#12202b;--mist:#f3f5f7;--card:#fff;--line:#dde3e8;--mute:#55636f;--teal:#0e7c7b;--plum:#8e2c5a;--sun:#f2b84b;--bg:#f3f5f7;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--ink:#eef2f5;--bg:#0f1a22;--card:#16252f;--line:#2a3a46;--mute:#9fb0bc;--teal:#3fc4c1;--plum:#e07bab}}
+:root[data-theme=dark]{--ink:#eef2f5;--bg:#0f1a22;--card:#16252f;--line:#2a3a46;--mute:#9fb0bc;--teal:#3fc4c1;--plum:#e07bab}
+html{scroll-padding-top:calc(72px + env(safe-area-inset-top,0px));scroll-behavior:smooth}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.6 "Instrument Sans",system-ui,sans-serif}
+h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.15;margin:0;font-weight:700}
+a{color:inherit}
+.w{max-width:1120px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:9;background:var(--bg);border-bottom:1px solid var(--line)}
+.bar{display:flex;align-items:center;gap:14px;height:64px}
+.logo{font:700 20px Fraunces,serif;text-decoration:none;white-space:nowrap}
+.logo i{display:inline-block;width:14px;height:14px;background:var(--teal);border-radius:50% 0 50% 0;margin-right:8px;box-shadow:8px 6px 0 -2px var(--plum)}
+nav{display:none;gap:22px;margin-left:auto}
+nav a{text-decoration:none;font-weight:500;color:var(--mute)}nav a:hover{color:var(--ink)}
+.search{flex:1;min-width:0;position:relative;margin-left:auto}
+.search input{width:100%;height:42px;border:1px solid var(--line);border-radius:21px;background:var(--card);color:var(--ink);padding:0 16px;font:inherit}
+.menu{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:10px;height:42px;width:42px;font-size:20px}
+nav.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg);padding:16px 20px;border-bottom:1px solid var(--line);gap:14px}
+.hero{padding:40px 0 48px}
+.hero .w{display:grid;gap:32px}
+.hero h1{font-size:clamp(34px,7vw,60px);letter-spacing:-.02em;max-width:14ch}
+.hero p{color:var(--mute);font-size:18px;max-width:46ch;margin:18px 0 24px}
+.btn{display:inline-block;border:0;border-radius:10px;background:var(--ink);color:var(--bg);padding:12px 20px;font:600 15px inherit;text-decoration:none;cursor:pointer}
+.btn.alt{background:transparent;color:var(--ink);border:1.5px solid var(--ink);margin-left:8px}
+.conv{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.conv h2{font-size:22px;margin-bottom:4px}.conv small{color:var(--mute)}
+.row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:14px 0}
+label{display:block;font-size:13px;font-weight:600;color:var(--mute);margin-bottom:4px}
+select,input[type=number],input[type=text],input[type=email],textarea{width:100%;height:44px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);padding:0 12px;font:inherit}
+textarea{height:110px;padding:10px 12px}
+.out{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.out div{background:var(--bg);border-radius:12px;padding:12px;text-align:center}
+.out b{display:block;font:700 26px Fraunces,serif}.out span{font-size:12px;color:var(--mute)}
+section{padding:56px 0}
+.head{display:flex;justify-content:space-between;align-items:end;gap:16px;margin-bottom:26px;flex-wrap:wrap}
+.head h2{font-size:clamp(28px,5vw,40px)}.head p{margin:6px 0 0;color:var(--mute);max-width:52ch}
+.cats{display:grid;gap:18px}
+.cat{border-radius:22px;padding:28px;color:#fff;position:relative;overflow:hidden}
+.cat.h{background:linear-gradient(150deg,#0e7c7b,#0a4f56)}.cat.g{background:linear-gradient(150deg,#8e2c5a,#4c1839)}
+.cat:after{content:"";position:absolute;right:-40px;top:-40px;width:180px;height:180px;border:26px solid rgba(255,255,255,.1);border-radius:50%}
+.cat h3{font-size:30px;margin-bottom:14px}
+.cat ul{list-style:none;padding:0;margin:0 0 18px;display:grid;gap:2px}
+.cat li a{display:block;padding:8px 0;border-bottom:1px solid rgba(255,255,255,.2);text-decoration:none}
+.cat .btn{background:#fff;color:#12202b}
+.tools{display:grid;gap:18px}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:22px}
+.tool h3{font-size:22px;margin-bottom:12px}
+.tool .row{margin:0 0 10px}
+.res{margin-top:14px;padding:14px;border-left:4px solid var(--sun);background:var(--bg);border-radius:0 10px 10px 0;min-height:52px;font-weight:500}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:var(--card);color:var(--ink);padding:9px 16px;font:600 14px inherit;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.arts{display:grid;gap:22px}
+.art{text-decoration:none;display:block}
+.ph{aspect-ratio:16/10;border-radius:14px;margin-bottom:12px;position:relative;overflow:hidden}
+.ph:after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.12) 14px 16px)}
+.p1{background:linear-gradient(120deg,#7fb7a8,#0e7c7b)}.p2{background:linear-gradient(120deg,#f2b84b,#d98a2b)}.p3{background:linear-gradient(120deg,#c98aa9,#8e2c5a)}
+.p4{background:linear-gradient(120deg,#9ab0c9,#3f5f8a)}.p5{background:linear-gradient(120deg,#b6c9a0,#5f8447)}.p6{background:linear-gradient(120deg,#e3a8a0,#b5504a)}
+.tag{font-size:13px;font-weight:600;color:var(--teal)}.tag.g{color:var(--plum)}
+.art h3{font-size:21px;margin:4px 0 6px}.art:hover h3{text-decoration:underline}
+.art p{margin:0;color:var(--mute);font-size:15px}
+.none{display:none;color:var(--mute);padding:12px 0}
+.about{background:var(--ink);color:var(--bg)}
+.about .w{display:grid;gap:28px}
+.about h2{font-size:clamp(28px,5vw,40px)}.about p{opacity:.85;max-width:60ch}
+.facts{display:grid;gap:14px;align-content:start}
+.facts div{border-top:1px solid rgba(128,128,128,.4);padding-top:12px}
+.contact form{display:grid;gap:12px;max-width:560px}
+#msg{font-weight:600;min-height:24px}
+footer{border-top:1px solid var(--line);padding:32px 0 40px;color:var(--mute);font-size:14px}
+footer .w{display:flex;flex-wrap:wrap;gap:12px 28px;justify-content:space-between}
+footer a{margin-right:16px}
+@media(min-width:760px){.menu{display:none}nav{display:flex}.search{flex:0 1 240px;margin-left:0}
+.hero .w{grid-template-columns:1.1fr 1fr;align-items:center}.cats,.tools,.arts{grid-template-columns:repeat(2,1fr)}
+.arts,.tools{grid-template-columns:repeat(3,1fr)}.about .w{grid-template-columns:1.4fr 1fr}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+/* premium layer */
+:root{--ink:#0f1b26;--teal:#0b6b6a;--plum:#7d2452;--line:#e1e6ea;--bg:#f6f7f8;--brass:#b08d57;--sh:0 1px 2px rgba(15,27,38,.06),0 16px 36px -14px rgba(15,27,38,.2)}
+.util{background:var(--ink);color:var(--bg);font-size:13px}
+.util .w{display:flex;justify-content:space-between;align-items:center;height:34px}.util span+span{display:none}
+.logo{font-size:21px;letter-spacing:-.01em}
+.hero{padding:64px 0 96px;position:relative;background:radial-gradient(900px 420px at 85% 0,rgba(11,107,106,.11),transparent 60%),radial-gradient(700px 420px at 0 100%,rgba(125,36,82,.08),transparent 60%)}
+.hero:after{content:"";position:absolute;left:0;right:0;bottom:0;height:22px;opacity:.45;background:repeating-linear-gradient(90deg,var(--mute) 0 1px,transparent 1px 12px) bottom/100% 9px no-repeat,repeating-linear-gradient(90deg,var(--mute) 0 1px,transparent 1px 60px) bottom/100% 22px no-repeat}
+.hero h1{font-weight:500;font-size:clamp(40px,8.5vw,72px);letter-spacing:-.035em;max-width:15ch}
+.hero .note{font-size:14px;margin:18px 0 0}
+.hero .w>div:first-child{animation:in .9s both}@keyframes in{from{opacity:0;transform:translateY(14px)}}
+.btn{border-radius:999px;padding:14px 26px;transition:transform .15s}.btn:hover{transform:translateY(-1px)}
+.conv{box-shadow:var(--sh);border-radius:24px;padding:30px;position:relative;overflow:hidden}
+.conv:before{content:"";position:absolute;left:0;right:0;top:0;height:5px;background:linear-gradient(90deg,var(--teal),var(--plum))}
+.conv h2{font-weight:500}.out div{background:var(--card);border:1px solid var(--line)}
+section{padding:92px 0}.head h2{font-weight:500;letter-spacing:-.025em}
+.cat.h,.cat.g{background:var(--card);color:var(--ink);border:1px solid var(--line);box-shadow:var(--sh);padding:0 0 32px;border-radius:24px}
+.cat:after{display:none}
+.cat:before{content:"";display:block;height:150px;margin-bottom:26px}
+.cat.h:before{background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.1) 14px 16px),linear-gradient(135deg,#0b6b6a,#083f47)}
+.cat.g:before{background:repeating-linear-gradient(135deg,transparent 0 14px,rgba(255,255,255,.1) 14px 16px),linear-gradient(135deg,#7d2452,#45152f)}
+.cat h3,.cat ul,.cat .btn{margin-left:30px;margin-right:30px}.cat h3{font-weight:500;font-size:32px;margin-bottom:12px}
+.cat li a{display:flex;justify-content:space-between;border-bottom:1px solid var(--line)}.cat li a:after{content:"\203A";color:var(--mute)}
+.cat.h .btn{background:var(--teal);color:var(--card)}.cat.g .btn{background:var(--plum);color:var(--card)}
+#tools{background:color-mix(in srgb,var(--ink) 5%,var(--bg))!important}
+.tool{border-radius:22px;box-shadow:var(--sh);padding:28px}.tool h3{font-weight:500}.res{border-left-color:var(--brass)}
+.art{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:12px 12px 24px;transition:box-shadow .2s}
+.art:hover{box-shadow:var(--sh)}.art:hover h3{text-decoration:none}
+.art .tag,.art h3,.art p,.art .meta{display:block;margin-left:12px;margin-right:12px}.art h3{font-weight:500}.art .ph{margin-bottom:16px}
+.meta{font-size:13px;color:var(--mute);margin-top:14px}
+.about{padding:96px 0}.about h2{font-weight:500}
+.news{background:var(--card);border-block:1px solid var(--line);padding:60px 0}.news .w{display:grid;gap:20px;align-items:center}
+.news h2{font-size:28px;font-weight:500}.news p{margin:6px 0 0;color:var(--mute)}
+#nf{display:flex;gap:8px}#nf input{flex:1;min-width:0;height:50px;border:1px solid var(--line);border-radius:999px;padding:0 22px;background:var(--bg);color:var(--ink);font:inherit}
+footer{background:var(--ink);color:var(--bg);border:0;padding:64px 0 40px;font-size:15px}
+footer .w{display:block}.fg{display:grid;gap:32px}.fl{font:700 20px Fraunces,serif}
+footer p{opacity:.7;margin:8px 0 0;max-width:34ch}footer h4{font-size:14px;margin:0 0 14px}
+footer a{display:block;margin:0 0 9px;opacity:.75;text-decoration:none}footer a:hover{opacity:1}
+footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:40px;padding-top:22px;font-size:13px}
+@media(min-width:760px){.util span+span{display:inline}.news .w{grid-template-columns:1fr 1fr}.fg{grid-template-columns:1.6fr 1fr 1fr 1fr}}
+@media(prefers-reduced-motion:reduce){.hero .w>div{animation:none}}
+
+/* size converter */
+.seg.big{display:flex;width:100%}.seg.big button{flex:1;min-height:48px;padding:12px 8px}
+.cv{background:var(--card);border:1px solid var(--line);border-radius:26px;box-shadow:var(--sh);padding:22px;max-width:760px;margin:0 auto}
+.blk{margin-top:22px}.blk:first-child{margin-top:0}
+.chips{display:grid;grid-template-columns:repeat(auto-fill,minmax(68px,1fr));gap:8px}
+.chips button{min-height:48px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;font:600 15px "Instrument Sans",sans-serif;cursor:pointer}
+.chips button[aria-pressed=true]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.lr{display:flex;justify-content:space-between;align-items:center;margin-bottom:4px}.lr label{margin:0}
+.lnk{background:none;border:0;color:var(--teal);font:600 14px "Instrument Sans",sans-serif;cursor:pointer;padding:8px 0;text-decoration:underline}
+.ans{margin-top:26px;background:var(--ink);color:var(--bg);border-radius:20px;padding:24px}
+.ans p{margin:0;opacity:.75;font-size:14px}
+#cvBig{display:block;font:500 clamp(44px,14vw,64px)/1.1 Fraunces,Georgia,serif;letter-spacing:-.02em;margin:8px 0 18px}
+.cvall{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.cvall div{border:1px solid rgba(128,128,128,.45);border-radius:12px;padding:10px 6px;text-align:center}
+.cvall div.on{background:var(--sun);color:#12202b;border-color:var(--sun)}
+.cvall span{display:block;font-size:12px;opacity:.8}.cvall b{font-size:17px}
+.cvnote{font-size:14px;color:var(--mute);margin:16px 0 0}
+.cvx{max-width:760px;margin:32px auto 0}.cvx h3{font-size:22px;font-weight:500;margin-bottom:10px}.cvx p{color:var(--mute);margin:0 0 12px}
+@media(min-width:760px){.cv{padding:34px}}
+
+/* paint calculator */
+.pc{display:grid;gap:22px}
+.pin,.pout{background:var(--card);border:1px solid var(--line);border-radius:24px;padding:24px;box-shadow:var(--sh)}
+.pin fieldset{border:0;padding:0;margin:0 0 20px;min-width:0}.pin legend{font-size:13px;font-weight:600;color:var(--mute);padding:0;margin-bottom:6px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.fld{position:relative}.fld input{padding-right:40px}
+.fld span{position:absolute;right:13px;top:50%;transform:translateY(-50%);color:var(--mute);font-size:14px;pointer-events:none}
+.step{display:flex;gap:8px}.step input{text-align:center}
+.step button{width:52px;flex:none;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:12px;font:600 22px "Instrument Sans",sans-serif;cursor:pointer}
+.pin fieldset:last-child{margin-bottom:0}
+.lab{margin:0;font-size:13px;font-weight:600;color:var(--mute)}
+.area{font:500 clamp(44px,12vw,60px)/1.05 Fraunces,Georgia,serif;letter-spacing:-.02em;margin:6px 0 4px}
+.brk{margin:14px 0 22px;font-size:15px}.brk div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid var(--line);padding:8px 0}
+.coats{display:grid;gap:10px;margin:10px 0 20px}
+.coat{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:14px 16px;border-radius:14px;background:var(--bg);border:1px solid var(--line)}
+.coat b{font:500 26px Fraunces,Georgia,serif}.coat small{display:block;color:var(--mute)}.coat.rec{border-color:var(--teal);box-shadow:inset 0 0 0 1px var(--teal)}
+.hint{color:var(--mute);margin:0}
+.warn{border-left:4px solid var(--brass);background:var(--bg);border-radius:0 12px 12px 0;padding:14px 16px;font-size:14px;color:var(--mute)}.warn strong{color:var(--ink)}.warn p{margin:0 0 8px}.warn p:last-child{margin:0}
+@media(min-width:900px){.pc{grid-template-columns:1fr 1fr;align-items:start}}
+
+/* reader */
+.rd{position:fixed;inset:0;z-index:30;background:var(--bg);overflow:auto;padding-bottom:64px}.rd[hidden]{display:none}
+.rdbar{position:sticky;top:0;background:var(--bg);border-bottom:1px solid var(--line);padding:calc(10px + env(safe-area-inset-top,0px)) 0 10px}
+.rd article{max-width:720px;padding-top:32px}.rd h1{font-size:clamp(32px,7vw,46px);font-weight:500;letter-spacing:-.025em;margin:6px 0 12px}
+.rd .dek{font-size:19px;color:var(--mute);margin:0 0 24px}.rd h2{font-size:24px;font-weight:500;margin:32px 0 10px}
+.rd p,.rd li{font-size:17px;line-height:1.7}.rd li{margin-bottom:6px}.rd a{color:var(--teal)}
+.rd table{display:block;overflow-x:auto;border-collapse:collapse;margin:16px 0;font-size:15px}.rd th,.rd td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}.rd th{background:var(--card)}
+.filt{margin-bottom:24px;max-width:420px}
+</style>
+</head>
+<body>
+<div class="util"><div class="w"><span>Free calculators and size guides for US and UK readers</span><span>US, UK and EU sizing</span></div></div>
+<header><div class="w bar">
+<a class="logo" href="#top"><i></i>Style &amp; Home Hub</a>
+<nav id="nav" aria-label="Main"><a href="#converter">Size converter</a><a href="#tools">Tools</a><a href="#articles">Articles</a><a href="#about">About</a><a href="#contact">Contact</a></nav>
+<div class="search"><input id="q" type="search" placeholder="Search guides and tools" aria-label="Search guides and tools"></div>
+<button class="menu" id="mb" aria-label="Menu" aria-expanded="false">☰</button>
+</div></header>
+
+<main id="top">
+<div class="hero"><div class="w">
+<div>
+<h1>Measure once. Buy the right amount, in the right size.</h1>
+<p>Practical calculators and size guides for US and UK homes and wardrobes, from how much paint a room needs to what a UK 12 is in EU sizing.</p>
+<a class="btn" href="#tools">Use the calculators</a><a class="btn alt" href="#articles">Read the guides</a>
+<p class="note">Free to use. No sign-up. Every tool works in US or UK units.</p>
+</div>
+<div class="conv"><h2>Size converter</h2><small>Women's, men's and kids' clothing in US, UK and EU sizes</small>
+<div class="out" style="margin:18px 0"><div><b>8</b><span>US</span></div><div><b>12</b><span>UK</span></div><div><b>40</b><span>EU</span></div></div>
+<a class="btn" href="#converter">Open the converter</a>
+</div></div></div>
+
+<section id="categories" style="padding-top:8px"><div class="w">
+<div class="head"><div><h2>Two ways we help</h2><p>Pick a topic and start with the numbers.</p></div></div>
+<div class="cats">
+<div class="cat h"><h3>Home DIY</h3><ul>
+<li class="k" data-t="room decoration"><a href="#articles">Room decoration</a></li>
+<li class="k" data-t="paint calculator"><a href="#paint">Paint calculator</a></li>
+<li class="k" data-t="flooring calculator"><a href="#tools">Flooring calculator</a></li>
+<li class="k" data-t="curtain measurement guide"><a href="#a-measure-windows-curtains">Curtain measurement guide</a></li>
+<li class="k" data-t="home organization"><a href="#a-small-bedroom-organization">Home organization</a></li>
+<li class="k" data-t="diy wall ideas"><a href="#a-diy-wall-ideas">DIY wall ideas</a></li></ul><a class="btn" href="#tools">Open home tools</a></div>
+<div class="cat g"><h3>Garments &amp; Clothing</h3><ul>
+<li class="k" data-t="size converter us uk eu clothing"><a href="#converter">US/UK/EU size converter</a></li>
+<li class="k" data-t="dress size guide"><a href="#a-womens-dress-sizes">Dress size guide</a></li>
+<li class="k" data-t="shirt size guide"><a href="#a-mens-shirt-sizes">Shirt size guide</a></li>
+<li class="k" data-t="trouser size guide"><a href="#a-measure-trousers">Trouser size guide</a></li>
+<li class="k" data-t="fabric measurement guide"><a href="#articles">Fabric measurement guide</a></li>
+<li class="k" data-t="clothing care tips"><a href="#articles">Clothing care tips</a></li></ul><a class="btn" href="#converter">Convert a size</a></div>
+</div></div></section>
+
+<section id="paint"><div class="w">
+<div class="head"><div><span class="tag">Home DIY</span><h2>Paint calculator</h2><p>Estimate your wall area and how many gallons of paint to buy. Enter measurements in feet and inches.</p></div></div>
+<div class="pc">
+<div class="pin">
+<fieldset><legend>Room length</legend><div class="pair"><div class="fld"><input id="pcLf" type="number" inputmode="decimal" min="0" value="14" aria-label="Room length, feet"><span>ft</span></div><div class="fld"><input id="pcLi" type="number" inputmode="decimal" min="0" max="11" value="0" aria-label="Room length, inches"><span>in</span></div></div></fieldset>
+<fieldset><legend>Room width</legend><div class="pair"><div class="fld"><input id="pcWf" type="number" inputmode="decimal" min="0" value="12" aria-label="Room width, feet"><span>ft</span></div><div class="fld"><input id="pcWi" type="number" inputmode="decimal" min="0" max="11" value="0" aria-label="Room width, inches"><span>in</span></div></div></fieldset>
+<fieldset><legend>Wall height</legend><div class="pair"><div class="fld"><input id="pcHf" type="number" inputmode="decimal" min="0" value="8" aria-label="Wall height, feet"><span>ft</span></div><div class="fld"><input id="pcHi" type="number" inputmode="decimal" min="0" max="11" value="0" aria-label="Wall height, inches"><span>in</span></div></div></fieldset>
+<fieldset><legend>Number of doors</legend><div class="step"><button type="button" data-for="pcD" data-d="-1" aria-label="Fewer doors">−</button><input id="pcD" type="number" inputmode="numeric" min="0" value="1" aria-label="Number of doors"><button type="button" data-for="pcD" data-d="1" aria-label="More doors">+</button></div></fieldset>
+<fieldset><legend>Number of windows</legend><div class="step"><button type="button" data-for="pcV" data-d="-1" aria-label="Fewer windows">−</button><input id="pcV" type="number" inputmode="numeric" min="0" value="2" aria-label="Number of windows"><button type="button" data-for="pcV" data-d="1" aria-label="More windows">+</button></div></fieldset>
+</div>
+<div class="pout"><div id="pcRes" aria-live="polite"></div><div class="warn" id="pcWarn"></div></div>
+</div></div></section>
+
+<section id="converter"><div class="w">
+<div class="head"><div><h2>US, UK and EU size converter</h2><p>Choose women's, men's or kids' clothing, pick your size, and see it in the other systems.</p></div></div>
+<div class="cv">
+<div class="blk"><label id="l1">Clothing for</label><div class="seg big" id="cvCat" role="group" aria-labelledby="l1"></div></div>
+<div class="blk" id="cvTypeWrap"><label for="cvType">Garment</label><select id="cvType"></select></div>
+<div class="blk"><label id="l2">Convert from</label><div class="seg big" id="cvFrom" role="group" aria-labelledby="l2"></div></div>
+<div class="blk"><label id="l3">Your size</label><div class="chips" id="cvChips" role="group" aria-labelledby="l3"></div></div>
+<div class="blk"><div class="lr"><label id="l4">Convert to</label><button type="button" class="lnk" id="cvSwap">Swap from and to</button></div><div class="seg big" id="cvTo" role="group" aria-labelledby="l4"></div></div>
+<div class="ans" aria-live="polite"><p id="cvCtx"></p><b id="cvBig"></b><div class="cvall" id="cvAll"></div></div>
+<p class="cvnote" id="cvNote"></p>
+</div>
+<div class="cvx"><h3>How sizes differ between countries</h3>
+<p>US, UK and EU brands label the same body measurements differently. Women's sizes step up in twos, men's shirts use collar size, and kids' sizes follow age or height.</p>
+<p>These charts show typical equivalents. Brands vary, so check the maker's size chart when you are between sizes or buying fitted clothes.</p></div>
+</div></section>
+
+<section id="tools" style="background:var(--card)"><div class="w">
+<div class="head"><div><h2>Featured tools</h2><p>Free and instant. Switch units to match how you measure.</p></div>
+<div class="seg" role="group" aria-label="Units"><button id="uf" aria-pressed="true">Feet · sq ft</button><button id="um" aria-pressed="false">Metres · m²</button></div></div>
+<div class="tools">
+<div class="tool k" data-t="paint calculator wall room"><h3>Paint calculator</h3>
+<p style="color:var(--mute);margin:0 0 16px">Enter your room in feet and inches to estimate wall area and gallons of paint.</p>
+<a class="btn" href="#paint">Open paint calculator</a></div>
+
+<div class="tool k" data-t="flooring calculator floor laminate carpet"><h3>Flooring calculator</h3>
+<div class="row"><div><label>Length (<span class="u">ft</span>)</label><input id="fl" type="number" min="0" value="15"></div><div><label>Width (<span class="u">ft</span>)</label><input id="fw" type="number" min="0" value="11"></div>
+<div><label>Waste allowance</label><select id="fx"><option value="5">5% (straight)</option><option value="10" selected>10% (standard)</option><option value="15">15% (diagonal)</option></select></div>
+<div><label>Pack covers (<span class="a">sq ft</span>)</label><input id="fp" type="number" min="0" value="20"></div></div>
+<button class="btn" id="fb">Calculate flooring</button><div class="res" id="fr" aria-live="polite">Enter your room to see how much flooring to buy.</div></div>
+
+<div class="tool k" data-t="curtain measurement guide window track"><h3>Curtain measurement guide</h3>
+<div class="row"><div><label>Track or pole width (<span class="u">ft</span>)</label><input id="cw" type="number" min="0" step=".1" value="5"></div><div><label>Drop (<span class="u">ft</span>)</label><input id="cd" type="number" min="0" step=".1" value="7"></div>
+<div><label>Fullness</label><select id="cx"><option value="1.5">1.5× (light)</option><option value="2" selected>2× (standard)</option><option value="2.5">2.5× (luxe)</option></select></div><div><label>Pairs or single</label><select id="cp"><option value="2">Pair</option><option value="1">Single panel</option></select></div></div>
+<button class="btn" id="cb">Get measurements</button><div class="res" id="cr" aria-live="polite">Measure the track, not the window, then add fullness.</div></div>
+</div></div></section>
+
+<section id="articles"><div class="w">
+<div class="head"><div><h2>Featured articles</h2><p>Ten practical guides for real rooms and real wardrobes.</p></div></div>
+<div class="seg big filt" id="filt" role="group" aria-label="Filter articles"></div><div class="arts" id="artGrid"></div><p class="none" id="none">No matches yet. Try "paint", "dress" or "curtain".</p></div></section>
+
+<section class="about" id="about"><div class="w">
+<div><h2>Built for people who measure twice</h2><p>Style &amp; Home Hub explains the sums behind decorating and dressing: how much paint, how many boxes of flooring, which size in which country. Every tool shows US and UK units, and every guide starts with what to measure.</p><p>The figures here are estimates. Check pack sizes and brand size charts before you buy.</p></div>
+<div class="facts"><div><b>US and UK units</b><br>Feet, inches, gallons, metres and litres.</div><div><b>Two topics</b><br>Home DIY and Garments &amp; Clothing.</div><div><b>Six free tools</b><br>Calculators and converters, no sign-up.</div></div>
+</div></section>
+
+<section class="news"><div class="w"><div><h2>New guides, once a month</h2><p>One short email with new calculators and size guides.</p></div><form id="nf"><input type="email" placeholder="Email address" aria-label="Email address" required><button class="btn" type="submit">Subscribe</button></form></div></section>
+
+<section class="contact" id="contact"><div class="w">
+<div class="head"><div><h2>Contact</h2><p>Suggest a guide, report an error or ask a question.</p></div></div>
+<form id="cf2" novalidate><div><label for="nm">Name</label><input id="nm" type="text" autocomplete="name"></div>
+<div><label for="em">Email</label><input id="em" type="email" autocomplete="email"></div>
+<div><label for="ms">Message</label><textarea id="ms"></textarea></div>
+<div><button class="btn" type="submit">Send message</button></div><div id="msg" role="status"></div></form>
+</div></section>
+</main>
+
+<div class="rd" id="rd" hidden role="dialog" aria-label="Article"><div class="rdbar"><div class="w"><a class="lnk" href="#articles">Back to articles</a></div></div><article class="w" id="rdBody"></article></div>
+<footer><div class="w"><div class="fg"><div><b class="fl">Style &amp; Home Hub</b><p>Practical calculators and size guides for US and UK readers.</p></div>
+<div><h4>Home DIY</h4><a href="#paint">Paint calculator</a><a href="#tools">Flooring calculator</a><a href="#tools">Curtain guide</a><a href="#articles">Wall ideas</a></div>
+<div><h4>Garments &amp; Clothing</h4><a href="#converter">Size converter</a><a href="#articles">Dress sizes</a><a href="#articles">Shirt &amp; trouser sizes</a><a href="#articles">Fabric &amp; care</a></div>
+<div><h4>Site</h4><a href="#about">About</a><a href="#contact">Contact</a><a href="#top">Back to top</a></div></div>
+<p class="cp">© 2026 Style &amp; Home Hub. Sizes and quantities are estimates; check brand charts and pack sizes before buying.</p></div></footer>
+
+<script id="size-data">
+/* SIZE DATA: edit this block to add or change sizes.
+   Each row lists the same size as [US, UK, EU], in that order.
+   "units" adds a suffix when a size is shown (for example EU kids' sizes in cm). */
+const SIZE_DATA = {
+  regions: ["US", "UK", "EU"],
+  categories: {
+    women: { label: "Women", types: {
+      dress: { label: "Dresses, tops & jackets", units: {},
+        note: "Women's sizes usually run UK = US + 4 and EU = US + 32.",
+        rows: [["0","4","32"],["2","6","34"],["4","8","36"],["6","10","38"],["8","12","40"],["10","14","42"],["12","16","44"],["14","18","46"],["16","20","48"],["18","22","50"]] }
+    }},
+    men: { label: "Men", types: {
+      shirt: { label: "Shirts (collar)", units: { US: " in", UK: " in", EU: " cm" },
+        note: "Collar size is measured around the neck. EU shirt sizes are in centimetres.",
+        rows: [["14","14","36"],["14.5","14.5","37"],["15","15","38"],["15.5","15.5","39"],["16","16","41"],["16.5","16.5","42"],["17","17","43"],["17.5","17.5","44"]] },
+      trouser: { label: "Trousers (waist)", units: { US: " in", UK: " in" },
+        note: "US and UK trouser sizes are waist measurements in inches. EU sizes use their own number scale.",
+        rows: [["28","28","44"],["30","30","46"],["32","32","48"],["34","34","50"],["36","36","52"],["38","38","54"],["40","40","56"]] },
+      jacket: { label: "Jackets & suits (chest)", units: {},
+        note: "US and UK jacket sizes are chest measurements in inches.",
+        rows: [["36","36","46"],["38","38","48"],["40","40","50"],["42","42","52"],["44","44","54"],["46","46","56"]] }
+    }},
+    kids: { label: "Kids", types: {
+      age: { label: "Clothing by age", units: { UK: " yrs", EU: " cm" },
+        note: "UK kids' sizes use age. EU sizes are height in cm, so choose by height if your child is between sizes.",
+        rows: [["2T","2","92"],["3T","3","98"],["4T","4","104"],["5","5","110"],["6","6","116"],["7","7","122"],["8","8","128"],["10","10","140"],["12","12","152"],["14","14","164"]] }
+    }}
+  }
+};
+</script>
+<script id="size-engine">
+/* CONVERSION LOGIC: no page code in here. Reads SIZE_DATA and converts by row. */
+const SizeConverter = (function (data) {
+  const regions = data.regions;
+  const table = (cat, type) => data.categories[cat].types[type];
+  const suffix = (tb, region) => (tb.units && tb.units[region]) || "";
+  return {
+    regions: regions,
+    categories: () => Object.keys(data.categories).map(k => ({ id: k, label: data.categories[k].label })),
+    types: cat => Object.keys(data.categories[cat].types).map(k => ({ id: k, label: data.categories[cat].types[k].label })),
+    // Sizes to pick from when the user knows their size in `region`
+    sizes: (cat, type, region) => {
+      const tb = table(cat, type), i = regions.indexOf(region);
+      return tb.rows.map((r, n) => ({ index: n, label: r[i] + suffix(tb, region) }));
+    },
+    // The same size in every region, e.g. { US: "8", UK: "12", EU: "40" }
+    convert: (cat, type, index) => {
+      const tb = table(cat, type), out = {};
+      regions.forEach((rg, i) => { out[rg] = tb.rows[index][i] + suffix(tb, rg); });
+      return out;
+    },
+    note: (cat, type) => table(cat, type).note,
+    label: (cat, type) => data.categories[cat].label + ": " + table(cat, type).label
+  };
+})(SIZE_DATA);
+</script>
+<script id="size-ui">
+/* PAGE CODE: buttons, chips and the result card. */
+(function () {
+  const $ = id => document.getElementById(id), SC = SizeConverter;
+  const st = { cat: "women", type: "dress", from: "US", to: "UK", idx: 4 };
+  const mid = () => Math.floor(SC.sizes(st.cat, st.type, st.from).length / 2);
+  function buttons(el, items, active, onPick) {
+    const focused = el.contains(document.activeElement) ? [].indexOf.call(el.children, document.activeElement) : -1;
+    el.innerHTML = "";
+    items.forEach(it => {
+      const b = document.createElement("button");
+      b.type = "button"; b.textContent = it.label;
+      b.setAttribute("aria-pressed", it.id === active);
+      b.onclick = () => onPick(it.id);
+      el.appendChild(b);
+    });
+    if (focused > -1) el.children[focused].focus();
+  }
+  function render() {
+    buttons($("cvCat"), SC.categories(), st.cat, id => { st.cat = id; st.type = SC.types(id)[0].id; st.idx = mid(); render(); });
+    const types = SC.types(st.cat);
+    $("cvTypeWrap").hidden = types.length < 2;
+    $("cvType").innerHTML = types.map(t => `<option value="${t.id}"${t.id === st.type ? " selected" : ""}>${t.label}</option>`).join("");
+    const rg = SC.regions.map(r => ({ id: r, label: r }));
+    buttons($("cvFrom"), rg, st.from, id => { st.from = id; render(); });
+    buttons($("cvTo"), rg, st.to, id => { st.to = id; render(); });
+    buttons($("cvChips"), SC.sizes(st.cat, st.type, st.from).map(s => ({ id: s.index, label: s.label })), st.idx, i => { st.idx = i; render(); });
+    const res = SC.convert(st.cat, st.type, st.idx);
+    $("cvCtx").textContent = `${SC.label(st.cat, st.type)} · ${st.from} ${res[st.from]} is`;
+    $("cvBig").textContent = `${st.to} ${res[st.to]}`;
+    $("cvAll").innerHTML = SC.regions.map(r => `<div class="${r === st.to ? "on" : ""}"><span>${r}</span><b>${res[r]}</b></div>`).join("");
+    $("cvNote").textContent = SC.note(st.cat, st.type);
+  }
+  $("cvType").onchange = e => { st.type = e.target.value; st.idx = mid(); render(); };
+  $("cvSwap").onclick = () => { const f = st.from; st.from = st.to; st.to = f; render(); };
+  render();
+})();
+</script>
+<script id="paint-logic">
+/* PAINT LOGIC: change the numbers here to tune the estimate. US units only (feet, square feet, gallons). */
+const PAINT_CONFIG = {
+  doorSqFt: 20,          // area deducted for each door
+  windowSqFt: 15,        // area deducted for each window
+  coveragePerGallon: 350,// sq ft one gallon covers per coat
+  coats: [1, 2],         // coat counts to show
+  typicalCoats: 2        // highlighted as the usual choice
+};
+const PaintCalculator = {
+  toFeet: (feet, inches) => feet + inches / 12,
+  // Inputs in decimal feet, plus door and window counts. Returns areas (sq ft) and gallons per coat count.
+  estimate: function (i) {
+    const C = PAINT_CONFIG;
+    const gross = 2 * (i.length + i.width) * i.height;
+    const doors = i.doors * C.doorSqFt, windows = i.windows * C.windowSqFt;
+    const net = Math.max(0, gross - doors - windows);
+    const coats = C.coats.map(n => {
+      const gallons = net * n / C.coveragePerGallon;
+      return { coats: n, gallons: gallons, buy: net > 0 ? Math.max(1, Math.ceil(gallons - 1e-9)) : 0 };
+    });
+    return { gross: gross, doors: doors, windows: windows, net: net, coats: coats };
+  }
+};
+</script>
+<script id="paint-ui">
+(function () {
+  const $ = id => document.getElementById(id), C = PAINT_CONFIG, P = PaintCalculator;
+  const num = id => Math.max(0, parseFloat($(id).value) || 0);
+  const dim = k => P.toFeet(num("pc" + k + "f"), num("pc" + k + "i"));
+  const sq = v => Math.round(v).toLocaleString("en-US") + " sq ft";
+  $("pcWarn").innerHTML = `<p><strong>This is an estimate, not an exact quantity.</strong> Actual paint needed depends on the coverage printed on your paint can (often 350 to 400 sq ft per gallon), the number of coats, the wall surface and any colour change. Dark colours, new drywall and textured walls usually need more.</p>
+<p>This estimate assumes ${C.coveragePerGallon} sq ft per gallon per coat, ${C.doorSqFt} sq ft per door and ${C.windowSqFt} sq ft per window. Ceilings, trim and closets are not included. Check the can label and buy a little extra for touch-ups.</p>`;
+  function render() {
+    const doors = Math.floor(num("pcD")), windows = Math.floor(num("pcV"));
+    const r = P.estimate({ length: dim("L"), width: dim("W"), height: dim("H"), doors: doors, windows: windows });
+    let out;
+    if (dim("L") <= 0 || dim("W") <= 0 || dim("H") <= 0) {
+      out = '<p class="hint">Enter the room length, width and wall height to see an estimate.</p>';
+    } else if (r.net <= 0) {
+      out = '<p class="hint">The doors and windows take up more than the wall area. Check your measurements.</p>';
+    } else {
+      out = `<p class="lab">Estimated paintable wall area</p><div class="area">${sq(r.net)}</div>
+<div class="brk"><div><span>All four walls</span><b>${sq(r.gross)}</b></div>
+<div><span>Doors (${doors} × ${C.doorSqFt} sq ft)</span><b>−${sq(r.doors)}</b></div>
+<div><span>Windows (${windows} × ${C.windowSqFt} sq ft)</span><b>−${sq(r.windows)}</b></div></div>
+<p class="lab">Estimated paint needed</p><div class="coats">` +
+      r.coats.map(c => `<div class="coat${c.coats === C.typicalCoats ? " rec" : ""}"><div><b>${c.gallons.toFixed(1)} gal</b><small>${c.coats} coat${c.coats > 1 ? "s" : ""}${c.coats === C.typicalCoats ? ", most common" : ""}</small></div><div>Buy ${c.buy} gallon${c.buy > 1 ? "s" : ""}</div></div>`).join("") + "</div>";
+    }
+    $("pcRes").innerHTML = out;
+  }
+  document.querySelectorAll(".step button").forEach(b => b.onclick = () => {
+    const i = $(b.dataset.for); i.value = Math.max(0, (parseInt(i.value, 10) || 0) + Number(b.dataset.d)); render();
+  });
+  document.querySelectorAll(".pin input").forEach(i => i.addEventListener("input", render));
+  render();
+})();
+</script>
+<script id="articles-data">
+/* ARTICLES: add or edit entries here. cat is "home" or "wear". body is plain HTML. */
+const ARTICLES = [
+{id:"measure-room-painting",cat:"home",tag:"Home DIY · Painting",min:5,title:"How to Measure a Room for Painting",dek:"Work out wall area, subtract openings, and turn it into gallons or litres.",body:`
+<p>Paint is sold by volume, but you buy it by area. The steps below get you from a tape measure to a sensible quantity. You can also use the <a href="#paint">paint calculator</a>.</p>
+<h2>What you need</h2><ul><li>Tape measure or laser measure</li><li>Notepad or phone</li><li>The coverage figure printed on the paint can you plan to buy</li></ul>
+<h2>Step by step</h2>
+<ol><li><b>Measure each wall's width</b> along the base and add them up. That total is the room's perimeter.</li>
+<li><b>Measure the wall height</b>, floor to ceiling. Measure in two places if the ceiling is uneven.</li>
+<li><b>Multiply perimeter by height</b> to get total wall area.</li>
+<li><b>Subtract doors and windows.</b> Measure them, or use about 20 sq ft (1.5 m²) for a standard door.</li>
+<li><b>Multiply by the number of coats</b>, usually two, then divide by the coverage on the can.</li></ol>
+<h2>Worked examples</h2>
+<table><tr><th></th><th>US (feet)</th><th>UK (metres)</th></tr>
+<tr><td>Room</td><td>12 × 14 ft, 8 ft walls</td><td>3.6 × 4.2 m, 2.4 m walls</td></tr>
+<tr><td>Wall area</td><td>52 × 8 = 416 sq ft</td><td>15.6 × 2.4 = 37.4 m²</td></tr>
+<tr><td>Minus 1 door, 2 windows</td><td>−20 −30 = 366 sq ft</td><td>−1.5 −2.4 = 33.5 m²</td></tr>
+<tr><td>Two coats</td><td>732 sq ft</td><td>67 m²</td></tr>
+<tr><td>Coverage assumed</td><td>350 sq ft per gallon</td><td>12 m² per litre</td></tr>
+<tr><td>Paint needed</td><td>2.1 gal, so buy 3 gal or 2 gal plus a quart</td><td>5.6 L, so buy 6 L</td></tr></table>
+<h2>Things that change the answer</h2>
+<p>Bare plaster or drywall, dark-to-light colour changes and rough textures all use more paint. Ceilings, skirting or baseboards, and trim are extra. Coverage figures on tins are best-case, so check yours and round up.</p>`},
+{id:"calculate-flooring",cat:"home",tag:"Home DIY · Flooring",min:5,title:"How to Calculate Flooring for a Room",dek:"Measure the floor, add a waste allowance, and round up to whole packs.",body:`
+<p>Flooring is sold in packs that cover a fixed area, so the aim is total area plus waste, divided by pack coverage.</p>
+<h2>1. Measure the floor area</h2>
+<p>For a rectangular room, multiply length by width. For an L-shaped room, split it into rectangles, calculate each and add them. Include alcoves and doorways where flooring will run through. Leave out fitted cabinets, which are normally installed on top of the floor.</p>
+<h2>2. Add waste</h2>
+<table><tr><th>Layout</th><th>Typical allowance</th></tr><tr><td>Straight lay, simple room</td><td>5–10%</td></tr><tr><td>Awkward room with many cuts</td><td>10%</td></tr><tr><td>Diagonal or herringbone</td><td>10–15%</td></tr></table>
+<p>These are common rules of thumb. Your fitter or the manufacturer may recommend a different figure.</p>
+<h2>3. Divide by pack size</h2>
+<table><tr><th></th><th>US</th><th>UK</th></tr><tr><td>Room</td><td>15 × 11 ft = 165 sq ft</td><td>4.5 × 3.4 m = 15.3 m²</td></tr>
+<tr><td>Plus 10% waste</td><td>181.5 sq ft</td><td>16.8 m²</td></tr>
+<tr><td>Pack covers</td><td>20 sq ft</td><td>2.2 m²</td></tr>
+<tr><td>Packs to buy</td><td>9.1, so 10</td><td>7.7, so 8</td></tr></table>
+<h2>Before you order</h2>
+<ul><li>Buy everything in one go so the batch or dye lot matches.</li><li>Check whether you need underlay, trims or adhesive.</li><li>Allow an expansion gap at the walls if the product needs one.</li><li>Keep a spare pack for future repairs.</li></ul>
+<p>Stairs are measured separately, by tread and riser.</p>`},
+{id:"measure-windows-curtains",cat:"home",tag:"Home DIY · Curtains",min:5,title:"How to Measure Windows for Curtains",dek:"Choose the pole position, then work out width, drop and fullness.",body:`
+<p>Measure after you have fitted the pole or track, not before. Use a steel tape measure and a stepladder.</p>
+<h2>Width</h2>
+<ol><li>Measure the window or recess width.</li><li>Extend the pole or track past each side, commonly 4 to 8 inches (10 to 20 cm), so the curtains clear the glass when open.</li><li>Measure the full pole or track length.</li><li>Multiply by the fullness you want: about 1.5× for a light look, 2× for standard, 2.5× for a fuller look. Heading styles differ, so check the maker's guidance.</li></ol>
+<h2>Drop (length)</h2>
+<p>Measure from the pole or track to your chosen finish point.</p>
+<table><tr><th>Style</th><th>Ends at</th></tr><tr><td>Sill length</td><td>Just above the sill</td></tr><tr><td>Apron</td><td>About 4–6 in (10–15 cm) below the sill</td></tr><tr><td>Floor length</td><td>About ½ in (1–2 cm) above the floor</td></tr></table>
+<h2>Example</h2>
+<p>A 48 in window with a 60 in pole and 2× fullness needs 120 in of finished width, or 60 in per curtain in a pair. In metric, a 160 cm track gives 320 cm total, or 160 cm per curtain. For a 215 cm floor-length drop, order a 213 to 214 cm curtain, plus any hem allowance the seller states.</p>
+<h2>Check</h2>
+<p>Measure the drop at both ends and the middle. Floors and ceilings are rarely level.</p>`},
+{id:"small-bedroom-organization",cat:"home",tag:"Home DIY · Organization",min:5,title:"Small Bedroom Organization Ideas",dek:"Practical ways to gain storage without buying furniture that overwhelms the room.",body:`
+<p>Start by taking everything out of one area, such as a drawer or the floor of the wardrobe. Keep what you use, and move seasonal or sentimental items elsewhere. Storage works best after you have less to store.</p>
+<h2>Ideas that work in tight spaces</h2>
+<table><tr><th>Problem</th><th>Fix</th><th>Measure first</th></tr>
+<tr><td>No floor space</td><td>Under-bed boxes or a bed with drawers</td><td>Height from floor to bed frame</td></tr>
+<tr><td>Crowded wardrobe</td><td>Double-hang rail for shirts and trousers</td><td>Wardrobe height and depth</td></tr>
+<tr><td>Bulky bedside table</td><td>Wall shelf or slim ledge</td><td>Space beside the bed</td></tr>
+<tr><td>Bare wall space</td><td>Shelves above the door or bed</td><td>Ceiling height and door frame</td></tr>
+<tr><td>Clutter on surfaces</td><td>Hooks on the back of the door</td><td>Door thickness for over-door hooks</td></tr></table>
+<h2>Habits that keep it tidy</h2>
+<ul><li><b>One in, one out.</b> Donate something when something new arrives.</li><li><b>Give everything a home,</b> including a small tray for keys, jewellery or chargers.</li><li><b>Rotate seasons.</b> Store off-season clothes in labelled boxes under the bed or on top of the wardrobe.</li><li><b>Fold upright</b> in drawers so you can see each item.</li></ul>
+<h2>Safety</h2>
+<p>Fix tall shelving to the wall. Anchor heavy shelves into studs or use wall fixings rated for the load, and keep sleeping areas clear of anything that could fall.</p>`},
+{id:"diy-wall-ideas",cat:"home",tag:"Home DIY · Walls",min:6,title:"DIY Wall Decoration Ideas",dek:"Five approachable projects, from gallery walls to simple panelling.",body:`
+<h2>1. Gallery wall</h2>
+<p>Cut paper templates of each frame and tape them to the wall to test the layout. Hang the centre of the arrangement at about 57 in (145 cm) from the floor, and keep gaps of 2 to 3 in (5 to 8 cm) between frames.</p>
+<h2>2. Colour block or arch</h2>
+<p>Mark the shape with painter's tape (masking tape in the UK), seal the edges with a thin coat of the base colour, then paint the new colour. Peel the tape while the paint is slightly tacky.</p>
+<h2>3. Simple panelling (board and batten)</h2>
+<p>Subtract total batten width from the wall width, then divide by the number of gaps. For a 120 in wall with 7 battens of 1.5 in, the total batten width is 10.5 in, leaving 109.5 in across 8 gaps, so each gap is about 13.7 in. Use a level and construction adhesive, then caulk and paint.</p>
+<h2>4. Floating shelves</h2>
+<p>Locate studs with a stud finder. In drywall or plasterboard without a stud, use fixings rated for the shelf load. Check the packaging, and keep books and heavy items to sturdy brackets.</p>
+<h2>5. Removable options for renters</h2>
+<p>Peel-and-stick wallpaper, adhesive hooks and leaning shelves avoid drilling. Test a small hidden patch first, since some paints lift when adhesive is removed.</p>
+<h2>Before you start</h2>
+<ul><li>Check for pipes and wires before drilling.</li><li>Wipe walls clean so paint and adhesive hold.</li><li>Measure twice, mark lightly in pencil, and check level.</li></ul>`},
+{id:"us-vs-uk-sizes",cat:"wear",tag:"Clothing · Sizes",min:5,title:"US vs UK Clothing Sizes",dek:"Where the numbers differ, where they match, and why you should still check the chart.",body:`
+<p>The same garment can carry a different number on each side of the Atlantic, though the differences follow simple patterns.</p>
+<h2>Women's clothing</h2>
+<p>UK sizes are usually four higher than US sizes, and EU sizes are usually 32 higher.</p>
+<table><tr><th>US</th><th>UK</th><th>EU</th></tr><tr><td>2</td><td>6</td><td>34</td></tr><tr><td>4</td><td>8</td><td>36</td></tr><tr><td>6</td><td>10</td><td>38</td></tr><tr><td>8</td><td>12</td><td>40</td></tr><tr><td>10</td><td>14</td><td>42</td></tr><tr><td>12</td><td>16</td><td>44</td></tr></table>
+<h2>Men's clothing</h2>
+<p>Shirt collar sizes and trouser waists are in inches in both countries, so a 15½ in collar or 32 in waist matches. Jackets and suits use chest inches in both. Letter sizes (S, M, L) vary more by brand.</p>
+<h2>Kids' clothing</h2>
+<p>US sizes follow age (2T, 3T, 4T, 5, 6). UK sizes usually list age or height, and EU sizes list height in centimetres.</p>
+<h2>Why numbers still mislead</h2>
+<p>Brands cut their sizes differently, and some make a given size larger than in the past. If a label and a size chart disagree, trust the chart and your own measurements. See <a href="#a-measure-yourself">how to measure yourself</a>, or use the <a href="#converter">size converter</a>.</p>`},
+{id:"measure-yourself",cat:"wear",tag:"Clothing · Measuring",min:5,title:"How to Measure Yourself for Clothes",dek:"The seven body measurements that answer most sizing questions.",body:`
+<p>Use a soft tape measure and wear light, close-fitting clothing. Stand relaxed, keep the tape level with the floor, and keep it snug but not tight. A friend makes it more accurate.</p>
+<table><tr><th>Measurement</th><th>Where</th></tr>
+<tr><td>Bust or chest</td><td>Around the fullest part, under the arms and across the shoulder blades</td></tr>
+<tr><td>Waist</td><td>Around the narrowest part of your torso, usually above the navel</td></tr>
+<tr><td>Hips</td><td>Around the fullest part of your hips and seat</td></tr>
+<tr><td>Neck</td><td>Around the base of the neck, with one finger under the tape</td></tr>
+<tr><td>Sleeve</td><td>From the centre back of the neck, over the shoulder, to the wrist</td></tr>
+<tr><td>Inseam</td><td>Inside leg, from the crotch to the ankle bone</td></tr>
+<tr><td>Height</td><td>Barefoot against a wall</td></tr></table>
+<h2>Tips</h2>
+<ul><li>Write down inches and centimetres. 1 inch is 2.54 cm.</li><li>Measure twice and use the larger figure if the two differ.</li><li>Re-measure if your weight or fitness has changed.</li><li>Compare your numbers with the brand's chart, since charts differ.</li></ul>
+<p>If you fall between two sizes, choose by the part that is hardest to alter, such as shoulders or hips, and get the rest tailored.</p>`},
+{id:"womens-dress-sizes",cat:"wear",tag:"Clothing · Dresses",min:6,title:"Women's Dress Size Guide",dek:"Convert US, UK and EU sizes and pick the right fit for the style.",body:`
+<h2>Size equivalents</h2>
+<table><tr><th>US</th><th>UK</th><th>EU</th></tr><tr><td>0</td><td>4</td><td>32</td></tr><tr><td>2</td><td>6</td><td>34</td></tr><tr><td>4</td><td>8</td><td>36</td></tr><tr><td>6</td><td>10</td><td>38</td></tr><tr><td>8</td><td>12</td><td>40</td></tr><tr><td>10</td><td>14</td><td>42</td></tr><tr><td>12</td><td>16</td><td>44</td></tr><tr><td>14</td><td>18</td><td>46</td></tr><tr><td>16</td><td>20</td><td>48</td></tr></table>
+<p>These are typical equivalents. Every brand publishes its own bust, waist and hip ranges for each size.</p>
+<h2>Choosing a size</h2>
+<ol><li>Measure your <a href="#a-measure-yourself">bust, waist and hips</a>.</li><li>Find each measurement on the brand's chart.</li><li>If they land in different sizes, choose by the measurement the dress fits tightest on. For a fitted dress, that is often bust or hips.</li></ol>
+<p><b>Example:</b> a chart lists bust 36 in for size 8, waist 28 in for size 8 and hips 39 in for size 10. A fitted dress would usually suit size 10, while a loose A-line may work in 8.</p>
+<h2>Fit by style</h2>
+<ul><li><b>Fitted or bodycon:</b> follow the chart closely. Stretch fabrics forgive more.</li><li><b>Wrap:</b> adjustable at the waist, so size by bust.</li><li><b>A-line or shift:</b> size by bust or shoulders.</li><li><b>Length:</b> measure from shoulder to hem and compare it with the listed length.</li></ul>
+<p>Check the return policy when ordering online, especially from a brand you have not bought before.</p>`},
+{id:"mens-shirt-sizes",cat:"wear",tag:"Clothing · Shirts",min:5,title:"Men's Shirt Size Guide",dek:"Collar, sleeve and fit explained, with US, UK and EU equivalents.",body:`
+<p>Dress shirts are sized by collar and sleeve. Casual shirts usually use S, M, L and so on.</p>
+<h2>Collar sizes</h2>
+<table><tr><th>US / UK (in)</th><th>EU (cm)</th><th>Often sold as</th></tr><tr><td>14</td><td>36</td><td>S</td></tr><tr><td>14½</td><td>37</td><td>S</td></tr><tr><td>15</td><td>38</td><td>M</td></tr><tr><td>15½</td><td>39</td><td>M</td></tr><tr><td>16</td><td>41</td><td>L</td></tr><tr><td>16½</td><td>42</td><td>L</td></tr><tr><td>17</td><td>43</td><td>XL</td></tr><tr><td>17½</td><td>44</td><td>XL</td></tr></table>
+<p>The letter column is only a rough guide, since brands differ.</p>
+<h2>How to measure</h2>
+<ul><li><b>Neck:</b> around the base of the neck with one finger under the tape. Use the next size up if you are between sizes.</li><li><b>Sleeve:</b> from the centre back of the neck, over the shoulder, to the wrist with your arm slightly bent.</li><li><b>Chest:</b> around the fullest part, for casual shirts and fit checks.</li></ul>
+<h2>Choosing the fit</h2>
+<p><b>Slim</b> shirts are cut closer to the body, <b>regular</b> shirts allow more room, and <b>relaxed or classic</b> is the roomiest. If your chest is large for your collar size, look for regular fit.</p>
+<p>Button the collar and check that you can slide a finger inside. Cotton can shrink slightly, so read the care label and consider that when choosing. Convert other sizes with the <a href="#converter">size converter</a>.</p>`},
+{id:"measure-trousers",cat:"wear",tag:"Clothing · Trousers",min:5,title:"How to Measure for Trousers",dek:"Waist, inseam, rise and hips, plus how to convert between US, UK and EU.",body:`
+<p>The most reliable method is to measure a pair that already fits you, laid flat. Otherwise use your body measurements.</p>
+<h2>Measurements you need</h2>
+<table><tr><th>Measurement</th><th>How</th></tr>
+<tr><td>Waist</td><td>Where the trousers sit, which may be below your natural waist</td></tr>
+<tr><td>Hips or seat</td><td>Fullest part of the hips</td></tr>
+<tr><td>Inseam</td><td>Crotch seam to the hem, or crotch to ankle on your body</td></tr>
+<tr><td>Rise</td><td>Crotch seam up to the top of the waistband</td></tr>
+<tr><td>Leg opening</td><td>Width across the hem, doubled if measured flat</td></tr></table>
+<h2>Reading the label</h2>
+<p>US and UK men's trousers are usually listed as waist by length in inches, so 34 × 32 means a 34 in waist and a 32 in inseam. EU sizes use a separate number.</p>
+<table><tr><th>Waist (in)</th><th>28</th><th>30</th><th>32</th><th>34</th><th>36</th><th>38</th><th>40</th></tr><tr><td>EU</td><td>44</td><td>46</td><td>48</td><td>50</td><td>52</td><td>54</td><td>56</td></tr></table>
+<p>Women's trousers generally follow the dress size pattern (UK is US plus 4), though jeans often use waist sizes. Check the chart.</p>
+<h2>Fit checks</h2>
+<ul><li>You should fit a finger or two inside the waistband when seated.</li><li>The hem should reach your shoe with a small break for a classic look.</li><li>Wash and dry as directed, since some fabrics shrink a little.</li></ul>
+<p>Compare your numbers with the brand's chart, and see <a href="#a-measure-yourself">how to measure yourself</a> for the basics.</p>`}
+];
+</script>
+<script id="articles-ui">
+(function(){
+  const $=id=>document.getElementById(id);let f="all";
+  const grid=$("artGrid"),names={all:"All",home:"Home DIY",wear:"Garments"};
+  function cards(){grid.innerHTML=ARTICLES.filter(a=>f==="all"||a.cat===f).map((a,i)=>`<a class="art k" href="#a-${a.id}" data-t="${a.title.toLowerCase()} ${a.dek.toLowerCase()}"><div class="ph p${i%6+1}" aria-hidden="true"></div><span class="tag${a.cat==="wear"?" g":""}">${a.tag}</span><h3>${a.title}</h3><p>${a.dek}</p><span class="meta">${a.min} min read</span></a>`).join("")}
+  function chips(){const el=$("filt");el.innerHTML="";Object.keys(names).forEach(k=>{const b=document.createElement("button");b.type="button";b.textContent=names[k];b.setAttribute("aria-pressed",k===f);b.onclick=()=>{f=k;chips();cards()};el.appendChild(b)})}
+  function route(){
+    const m=location.hash.match(/^#a-(.+)$/),a=m&&ARTICLES.find(x=>x.id===m[1]),r=$("rd");
+    if(a){$("rdBody").innerHTML=`<span class="tag${a.cat==="wear"?" g":""}">${a.tag}</span><h1>${a.title}</h1><p class="dek">${a.dek}</p>${a.body}<p style="color:var(--mute);font-size:14px;margin-top:32px">Figures here are general guidance. Always check the product label or maker's chart.</p>`;r.hidden=false;r.scrollTop=0;document.body.style.overflow="hidden";document.title=a.title+" – Style & Home Hub"}
+    else{r.hidden=true;document.body.style.overflow="";document.title="Style & Home Hub – DIY calculators and clothing size guides"}
+  }
+  chips();cards();addEventListener("hashchange",route);route();
+})();
+</script>
+<script>
+const $=id=>document.getElementById(id);
+// menu
+$('mb').onclick=()=>{const o=$('nav').classList.toggle('open');$('mb').setAttribute('aria-expanded',o)};
+$('nav').onclick=e=>{if(e.target.tagName=='A')$('nav').classList.remove('open')};
+// units
+let ft=true;
+function setU(f){ft=f;$('uf').setAttribute('aria-pressed',f);$('um').setAttribute('aria-pressed',!f);
+document.querySelectorAll('.u').forEach(e=>e.textContent=f?'ft':'m');document.querySelectorAll('.a').forEach(e=>e.textContent=f?'sq ft':'m²')}
+$('uf').onclick=()=>setU(true);$('um').onclick=()=>setU(false);
+const n=id=>Math.max(0,parseFloat($(id).value)||0);
+$('fb').onclick=()=>{const a=n('fl')*n('fw');if(!a){$('fr').textContent='Enter a length and width above zero.';return}
+const t=a*(1+ +$('fx').value/100),p=n('fp'),u=ft?'sq ft':'m²';
+$('fr').innerHTML=`Room: <b>${a.toFixed(1)} ${u}</b>. With waste: <b>${t.toFixed(1)} ${u}</b>.`+(p?`<br>Buy <b>${Math.ceil(t/p)} packs</b> of ${p} ${u}.`:'')};
+$('cb').onclick=()=>{const w=n('cw'),d=n('cd'),f=+$('cx').value,k=+$('cp').value;if(!w||!d){$('cr').textContent='Enter a track width and drop.';return}
+const hem=ft?.5:.15,tw=w*f,u=ft?'ft':'m';
+$('cr').innerHTML=`Total fabric width: <b>${tw.toFixed(1)} ${u}</b>${k==2?` (<b>${(tw/2).toFixed(1)} ${u}</b> per curtain)`:''}.<br>Finished length: <b>${d.toFixed(1)} ${u}</b>; cut length with hems about <b>${(d+hem*2).toFixed(1)} ${u}</b>.`};
+// search
+$('q').oninput=()=>{const s=$('q').value.trim().toLowerCase();let hit=0,arts=0;
+document.querySelectorAll('.k').forEach(e=>{const m=!s||(e.dataset.t+' '+e.textContent).toLowerCase().includes(s);e.style.display=m?'':'none';if(m&&s)hit++;});
+document.querySelectorAll('.art').forEach(e=>{if(e.style.display!='none')arts++});
+$('none').style.display=(s&&!hit)?'block':'none';
+if(s&&hit)location.hash='#tools'};
+$('nf').onsubmit=e=>{e.preventDefault();e.target.innerHTML='<b>Thanks. Subscription confirmed (demo form, nothing is sent).</b>'};
+// contact
+$('cf2').onsubmit=e=>{e.preventDefault();const m=$('msg');
+if(!$('nm').value.trim()||!/^\S+@\S+\.\S+$/.test($('em').value)||!$('ms').value.trim()){m.style.color='var(--plum)';m.textContent='Add your name, a valid email address and a message.';return}
+m.style.color='var(--teal)';m.textContent='Thanks. Your message is ready to send (demo form: nothing is transmitted).';e.target.reset()};
+</script>
+</body>
+</html>
