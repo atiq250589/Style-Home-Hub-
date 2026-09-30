@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta name="google-site-verification" content="QfamyGW4q-h8GA877OKZHbjNGTPaJoBCAtNGmL3Cen8" />
 <meta charset="utf-8">
+<meta name="google-site-verification" content="QfamyGW4q-h8GA877OKZHbjNGTPaJoBCAtNGmL3Cen8" />
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Style & Home Hub – DIY calculators and clothing size guides</title>
 <meta name="description" content="Free calculators, measuring guides and clothing size converters for home DIY and clothing, written for readers in the US and UK.">
@@ -203,6 +203,7 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 .ccard{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:18px;margin:16px 0}.ccard small{color:var(--mute)}
 .phold{background:var(--sun);color:#12202b;padding:2px 8px;border-radius:6px;font-weight:600}
 .pgback{margin-top:40px}
+.formula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brass);border-radius:0 12px 12px 0;padding:12px 16px;font-weight:600;overflow-x:auto}
 </style>
 </head>
 <body>
@@ -275,6 +276,7 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 <div class="pout"><div id="pcRes" aria-live="polite"></div><div class="warn" id="pcWarn"></div></div>
 </div>
 <figure class="fig calcfig"><svg viewBox="0 0 400 250" role="img" aria-label="Wall diagram showing a door and a window area subtracted from the total wall area to find the paintable area"><use href="#fig-paint" width="400" height="250"/></svg><figcaption>Subtract door and window areas from the total wall area before estimating paint.</figcaption></figure>
+<p class="calcfig" style="text-align:center">Want the full method? Read <a href="#a-how-much-paint-room">How to Calculate How Much Paint You Need for a Room</a>.</p>
 </div></section>
 
 <section id="converter"><div class="w">
@@ -315,7 +317,7 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 </div></div></section>
 
 <section id="articles"><div class="w">
-<div class="head"><div><h2>Featured articles</h2><p>Ten practical guides for real rooms and real wardrobes.</p></div></div>
+<div class="head"><div><h2>Featured articles</h2><p>Eleven practical guides for real rooms and real wardrobes.</p></div></div>
 <div class="seg big filt" id="filt" role="group" aria-label="Filter articles"></div><div class="arts" id="artGrid"></div><p class="none" id="none">No matches yet. Try "paint", "dress" or "curtain".</p></div></section>
 
 <section class="about" id="about"><div class="w">
@@ -497,7 +499,7 @@ const PaintCalculator = {
 <script id="articles-data">
 /* ARTICLES: add or edit entries here. cat is "home" or "wear". body is plain HTML. */
 const ARTICLES = [
-{id:"measure-room-painting",related:[["#paint", "Use the paint calculator"], ["#a-calculate-flooring", "How to calculate flooring for a room"], ["#a-diy-wall-ideas", "DIY wall decoration ideas"]],figs:[["fig-room", "Top-down room plan showing length, width, door, window and wall height measurements for painting", "Measure the length and width along the walls, then the floor-to-ceiling height."], ["fig-paint", "Wall diagram showing a door and a window area subtracted from the total wall area to find the paintable area", "Subtract doors and windows from the total wall area before working out paint."]],cat:"home",tag:"Home DIY · Painting",min:5,title:"How to Measure a Room for Painting",dek:"Work out wall area, subtract openings, and turn it into gallons or litres.",body:`
+{id:"measure-room-painting",related:[["#paint", "Use the paint calculator"], ["#a-how-much-paint-room", "How to calculate how much paint you need for a room"], ["#a-calculate-flooring", "How to calculate flooring for a room"], ["#a-diy-wall-ideas", "DIY wall decoration ideas"]],figs:[["fig-room", "Top-down room plan showing length, width, door, window and wall height measurements for painting", "Measure the length and width along the walls, then the floor-to-ceiling height."], ["fig-paint", "Wall diagram showing a door and a window area subtracted from the total wall area to find the paintable area", "Subtract doors and windows from the total wall area before working out paint."]],cat:"home",tag:"Home DIY · Painting",min:5,title:"How to Measure a Room for Painting",dek:"Work out wall area, subtract openings, and turn it into gallons or litres.",body:`
 <p>Paint is sold by volume, but you buy it by area. The steps below get you from a tape measure to a sensible quantity. You can also use the <a href="#paint">paint calculator</a>.</p>
 <h2>What you need</h2><ul><li>Tape measure or laser measure</li><li>Notepad or phone</li><li>The coverage figure printed on the paint can you plan to buy</li></ul>
 <h2>Step by step</h2>
@@ -516,6 +518,161 @@ const ARTICLES = [
 <tr><td>Paint needed</td><td>2.1 gal, so buy 3 gal or 2 gal plus a quart</td><td>5.6 L, so buy 6 L</td></tr></table>
 <h2>Things that change the answer</h2>
 <p>Bare plaster or drywall, dark-to-light colour changes and rough textures all use more paint. Ceilings, skirting or baseboards, and trim are extra. Coverage figures on tins are best-case, so check yours and round up.</p>`},
+{id:"how-much-paint-room",cat:"home",tag:"Home DIY · Painting",min:11,title:"How to Calculate How Much Paint You Need for a Room",dek:"A step-by-step method to work out paint quantity from room size, coats and coverage, with worked examples.",related:[["#paint","Use the paint calculator"],["#a-measure-room-painting","How to measure a room for painting"],["#a-diy-wall-ideas","DIY wall decoration ideas"]],figs:[["fig-paint","Wall diagram showing a door and a window area subtracted from the total wall area to find the paintable area","Subtract doors and windows from the total wall area before working out paint."],["fig-room","Top-down room plan showing length, width, door, window and wall height measurements for painting","Length, width and wall height are the three measurements the calculation starts with."]],body:`
+<p>Painting a room can transform the look of your home, but buying the right amount of paint can be surprisingly difficult. Buy too little and you may have to make another trip to the store. Buy too much and you may be left with expensive cans you never use.</p>
+<p>The good news is that calculating how much paint you need is relatively simple once you know the room dimensions, the number of coats, and the approximate coverage of your paint.</p>
+<p>This guide explains how to calculate paint, how to estimate gallons or litres, and how to account for doors, windows, ceilings, and different surface conditions. To check your numbers as you go, use our <a href="#paint">paint calculator</a>.</p>
+<h2>How Much Paint Do I Need?</h2>
+<p>The basic process is:</p>
+<ol><li>Measure the length and width of the room.</li><li>Measure the height of the walls.</li><li>Calculate the total wall surface area.</li><li>Subtract large doors and windows if appropriate.</li><li>Determine how many coats you need.</li><li>Divide the total paintable area by the paint's coverage per gallon or litre.</li><li>Round up to the nearest practical container size.</li></ol>
+<p>A simple formula is:</p>
+<p class="formula">Paint needed = Total paintable area × Number of coats ÷ Paint coverage</p>
+<p>For example, if your walls have 500 square feet of paintable area, you need two coats, and your paint covers approximately 350 square feet per gallon:</p>
+<p class="formula">500 × 2 ÷ 350 = 2.86 gallons</p>
+<p>You would generally purchase 3 gallons rather than 2.86 gallons.</p>
+<p>Always check the coverage information on the specific paint can because coverage varies between products.</p>
+<h2>How to Measure Your Room</h2>
+<p>Accurate measurements are the foundation of a good room paint calculator estimate.</p>
+<h3>Measure Wall Length</h3>
+<p>Measure the length of each wall in feet. For a rectangular room, you can calculate the perimeter like this:</p>
+<p class="formula">Perimeter = 2 × (Length + Width)</p>
+<p>For example, with a length of 12 feet and a width of 10 feet:</p>
+<p class="formula">Perimeter = 2 × (12 + 10) = 44 feet</p>
+<h3>Measure Wall Height</h3>
+<p>Next, measure from the floor to the ceiling. For example, the wall height might be 8 feet. Now multiply the room's perimeter by the wall height:</p>
+<p class="formula">44 × 8 = 352 square feet</p>
+<p>The estimated wall area is therefore 352 square feet before deducting doors and windows.</p>
+<h2>Paint Coverage: What Does It Mean?</h2>
+<p>Paint coverage tells you approximately how much surface a particular amount of paint can cover.</p>
+<p>Many interior paints provide coverage in the general range of several hundred square feet per gallon, but the exact figure depends on the product.</p>
+<p>Coverage can be affected by:</p>
+<ul><li>Paint type</li><li>Surface texture</li><li>Porosity of the wall</li><li>Application method</li><li>Previous wall colour</li><li>New drywall or plaster</li><li>Primer</li><li>Number of coats</li><li>Paint quality</li></ul>
+<p>A smooth, previously painted wall may require less paint than a porous or textured surface.</p>
+<p>Always use the manufacturer's stated coverage when making your final purchase.</p>
+<h2>The Basic Paint Calculation Formula</h2>
+<p>The most useful formula is:</p>
+<p class="formula">Paint required = Paintable area × Number of coats ÷ Coverage per gallon</p>
+<h3>Example</h3>
+<p>Suppose your paintable wall area is 400 square feet, you want 2 coats, and your paint covers 350 square feet per gallon:</p>
+<p class="formula">400 × 2 ÷ 350 = 2.29 gallons</p>
+<p>You would need approximately 2.3 gallons, so purchasing 3 gallons would provide a practical amount for the job.</p>
+<p>Remember that this is an estimate. If the wall is very porous, heavily textured, or changing from a dark colour to a light colour, additional paint or primer may be necessary.</p>
+<h2>Example: Calculating Paint for a 12 × 12 Foot Bedroom</h2>
+<p>Let's calculate paint for a typical 12 × 12 foot bedroom with an 8-foot ceiling.</p>
+<h3>Step 1: Calculate the perimeter</h3>
+<p class="formula">12 + 12 + 12 + 12 = 48 feet</p>
+<h3>Step 2: Calculate wall area</h3>
+<p class="formula">48 × 8 = 384 square feet</p>
+<p>So the total wall area is approximately 384 square feet.</p>
+<h3>Step 3: Account for Doors and Windows</h3>
+<p>Suppose the room has:</p>
+<ul><li>One door: approximately 21 square feet</li><li>Two windows: approximately 30 square feet combined</li></ul>
+<p>Total openings:</p>
+<p class="formula">21 + 30 = 51 square feet</p>
+<p>Paintable area:</p>
+<p class="formula">384 − 51 = 333 square feet</p>
+<h3>Step 4: Calculate Two Coats</h3>
+<p class="formula">333 × 2 = 666 square feet</p>
+<p>If your paint covers approximately 350 square feet per gallon:</p>
+<p class="formula">666 ÷ 350 = 1.90 gallons</p>
+<p>In this example, you would need approximately 2 gallons for the walls.</p>
+<p>It's sensible to allow some extra paint for touch-ups, surface absorption, and application losses.</p>
+<h2>How Many Coats of Paint Do You Need?</h2>
+<p>The number of coats depends on the condition and colour of the surface.</p>
+<h3>One Coat</h3>
+<p>One coat may sometimes be enough when:</p>
+<ul><li>The existing colour is similar.</li><li>The surface is already in good condition.</li><li>The paint product is designed for good coverage.</li><li>You are refreshing an existing finish.</li></ul>
+<h3>Two Coats</h3>
+<p>Two coats are commonly used when:</p>
+<ul><li>Changing colours.</li><li>Painting over a darker colour.</li><li>You want a more consistent finish.</li><li>The manufacturer recommends two coats.</li></ul>
+<h3>Primer Plus Paint</h3>
+<p>Primer can be useful for:</p>
+<ul><li>New drywall.</li><li>Bare plaster.</li><li>Stained surfaces.</li><li>Highly porous surfaces.</li><li>Major colour changes.</li></ul>
+<p>Primer is not automatically required for every repainting project. Follow the paint manufacturer's instructions and consider the condition of the existing surface.</p>
+<h2>How to Calculate Ceiling Paint</h2>
+<p>Ceilings are usually easier to calculate because you only need the room's length and width.</p>
+<h3>Formula</h3>
+<p class="formula">Ceiling area = Length × Width</p>
+<p>For a 12 × 12 foot room:</p>
+<p class="formula">12 × 12 = 144 square feet</p>
+<p>If you apply two coats:</p>
+<p class="formula">144 × 2 = 288 square feet</p>
+<p>If the paint covers approximately 350 square feet per gallon:</p>
+<p class="formula">288 ÷ 350 = 0.82 gallons</p>
+<p>You would need approximately 1 gallon for two coats, assuming the actual product coverage supports that estimate.</p>
+<h2>How to Account for Doors and Windows</h2>
+<p>Large doors and windows reduce the amount of wall area that needs paint.</p>
+<p>To calculate the area of an opening:</p>
+<p class="formula">Width × Height = Area</p>
+<p>For example, a door measuring 3 feet wide and 7 feet high:</p>
+<p class="formula">3 × 7 = 21 square feet</p>
+<p>A window measuring 4 feet wide and 4 feet high:</p>
+<p class="formula">4 × 4 = 16 square feet</p>
+<p>You can subtract these areas from the total wall area.</p>
+<p>However, for small openings, the difference may not be large enough to justify a complicated calculation. The simplest approach is often to estimate the total wall area and keep a small amount of extra paint available for touch-ups.</p>
+<h2>Paint Calculation for Different Room Sizes</h2>
+<p>Here are example estimates for rectangular rooms with 8-foot walls.</p>
+<table><tr><th>Room Size</th><th style="text-align:right">Approx. Wall Area Before Openings</th></tr>
+<tr><td>10 × 10 ft</td><td style="text-align:right">320 sq ft</td></tr>
+<tr><td>10 × 12 ft</td><td style="text-align:right">352 sq ft</td></tr>
+<tr><td>12 × 12 ft</td><td style="text-align:right">384 sq ft</td></tr>
+<tr><td>12 × 14 ft</td><td style="text-align:right">416 sq ft</td></tr>
+<tr><td>14 × 16 ft</td><td style="text-align:right">480 sq ft</td></tr>
+<tr><td>16 × 20 ft</td><td style="text-align:right">576 sq ft</td></tr></table>
+<p>These figures represent the approximate wall area before subtracting doors and windows.</p>
+<p>For a more accurate estimate, measure each opening and use the actual coverage listed on your paint.</p>
+<h2>Common Paint Calculation Mistakes</h2>
+<h3>1. Forgetting the Ceiling</h3>
+<p>If you're painting the ceiling as well as the walls, calculate the ceiling separately.</p>
+<h3>2. Ignoring Wall Height</h3>
+<p>Room size alone isn't enough. A room with 10-foot walls requires more paint than one with 8-foot walls.</p>
+<h3>3. Forgetting the Number of Coats</h3>
+<p>If you need two coats, your paint requirement is roughly double the amount required for one coat.</p>
+<h3>4. Assuming Every Paint Covers the Same Area</h3>
+<p>Different paints have different coverage rates. Always check the label.</p>
+<h3>5. Ignoring Surface Condition</h3>
+<p>Rough, textured, or highly porous surfaces can use more paint.</p>
+<h3>6. Buying the Exact Mathematical Amount</h3>
+<p>If your calculation produces 2.86 gallons, buying exactly 2.86 gallons isn't practical. Choose an appropriate container size and allow some paint for touch-ups.</p>
+<h2>Tips to Avoid Buying Too Much or Too Little Paint</h2>
+<h3>Check the Paint Label</h3>
+<p>The manufacturer's coverage estimate should be your primary reference.</p>
+<h3>Measure Twice</h3>
+<p>A small measurement error can affect the final calculation.</p>
+<h3>Keep the Colour Information</h3>
+<p>If you need additional paint later, having the exact colour name or code can help you purchase a matching product.</p>
+<h3>Keep Some Leftover Paint</h3>
+<p>A small amount can be useful for future touch-ups.</p>
+<h3>Consider Primer</h3>
+<p>If the surface is new, porous, stained, or undergoing a significant colour change, primer may reduce the amount of finish paint needed and improve the final result.</p>
+<h3>Don't Rely Solely on an Online Estimate</h3>
+<p>A paint calculator provides an estimate. Actual paint consumption depends on the surface and product.</p>
+<h2>Frequently Asked Questions</h2>
+<h3>How much paint do I need for a 12 × 12 room?</h3>
+<p>For an 8-foot-high room, the four walls have approximately 384 square feet of surface area before subtracting doors and windows. The actual amount of paint depends on the number of coats and the coverage stated on your paint.</p>
+<h3>How many gallons of paint do I need for 1,000 square feet?</h3>
+<p>If one gallon covers 350 square feet for one coat, 1,000 square feet would require approximately:</p>
+<p class="formula">1,000 ÷ 350 = 2.86 gallons</p>
+<p>For one coat, you would therefore plan for about 3 gallons. Two coats would require approximately twice as much.</p>
+<p>Always use the manufacturer's coverage information for your specific paint.</p>
+<h3>Should I subtract windows and doors?</h3>
+<p>You can subtract large doors and windows for a more precise calculation. However, keeping a small amount of extra paint can be useful for touch-ups.</p>
+<h3>Is two coats of paint always necessary?</h3>
+<p>No. The number of coats depends on the existing colour, surface condition, paint product, and desired finish. Follow the manufacturer's instructions.</p>
+<h3>Do textured walls require more paint?</h3>
+<p>Often, yes. Textured surfaces can have more surface area and may absorb or hold more paint than smooth walls.</p>
+<h3>Should I calculate ceiling paint separately?</h3>
+<p>Yes. The ceiling area is calculated by multiplying the room's length by its width.</p>
+<h3>Is a paint calculator accurate?</h3>
+<p>A paint calculator provides an estimate rather than a guarantee. Actual paint usage depends on coverage, surface condition, application technique, and the number of coats.</p>
+<h2>Final Takeaway</h2>
+<p>Calculating how much paint you need doesn't have to be complicated.</p>
+<p>Start by measuring the room perimeter and wall height, calculate the total wall area, subtract major doors and windows if necessary, multiply by the number of coats, and divide by the manufacturer's coverage rate.</p>
+<p>The most important formula to remember is:</p>
+<p class="formula">Paint needed = Paintable area × Number of coats ÷ Coverage</p>
+<p>Use this calculation as a planning tool, but always check the specific paint manufacturer's coverage recommendations before purchasing.</p>
+<p>With accurate measurements and a small allowance for touch-ups, you can reduce waste and avoid running out of paint halfway through your project.</p>
+<p>For a step-by-step look at taking the measurements themselves, see <a href="#a-measure-room-painting">How to Measure a Room for Painting</a>, or try the <a href="#paint">paint calculator</a>.</p>`},
 {id:"calculate-flooring",related:[["#tools", "Use the flooring calculator"], ["#a-measure-room-painting", "How to measure a room for painting"], ["#a-small-bedroom-organization", "Small bedroom organization ideas"]],figs:[["fig-floor", "Floor plans of a rectangular room and an L-shaped room split into two rectangles to calculate flooring area", "Split an L-shaped room into rectangles, calculate each area and add them together."]],cat:"home",tag:"Home DIY · Flooring",min:5,title:"How to Calculate Flooring for a Room",dek:"Measure the floor, add a waste allowance, and round up to whole packs.",body:`
 <p>Flooring is sold in packs that cover a fixed area, so the aim is total area plus waste, divided by pack coverage.</p>
 <h2>1. Measure the floor area</h2>
@@ -749,68 +906,4 @@ document.addEventListener("submit", e => {
 <script id="articles-ui">
 (function(){
   const $=id=>document.getElementById(id);let f="all";
-  const fig=x=>`<figure class="fig"><svg viewBox="0 0 400 250" role="img" aria-label="${x[1]}"><use href="#${x[0]}" width="400" height="250"/></svg><figcaption>${x[2]}</figcaption></figure>`;
-  const related=a=>a.related?"<h2>Related guides and tools</h2><ul>"+a.related.map(x=>`<li><a href="${x[0]}">${x[1]}</a></li>`).join("")+"</ul>":"";
-  const withFigs=a=>{const F=a.figs||[],i=a.body.indexOf("</p>")+4;return a.body.slice(0,i)+(F[0]?fig(F[0]):"")+a.body.slice(i)+(F[1]?fig(F[1]):"")};
-  const grid=$("artGrid"),names={all:"All",home:"Home DIY",wear:"Garments"};
-  function cards(){grid.innerHTML=ARTICLES.filter(a=>f==="all"||a.cat===f).map((a,i)=>`<a class="art k" href="#a-${a.id}" data-t="${a.title.toLowerCase()} ${a.dek.toLowerCase()}"><div class="ph fg"><svg viewBox="0 0 400 250" role="img" aria-label="${a.figs[0][1]}"><use href="#${a.figs[0][0]}" width="400" height="250"/></svg></div><span class="tag${a.cat==="wear"?" g":""}">${a.tag}</span><h3>${a.title}</h3><p>${a.dek}</p><span class="meta">${a.min} min read</span></a>`).join("")}
-  function chips(){const el=$("filt");el.innerHTML="";Object.keys(names).forEach(k=>{const b=document.createElement("button");b.type="button";b.textContent=names[k];b.setAttribute("aria-pressed",k===f);b.onclick=()=>{f=k;chips();cards()};el.appendChild(b)})}
-  const DEF_TITLE=document.title,desc=document.querySelector("meta[name=description]"),DEF_DESC=desc.content;
-  const ld=$("ld");
-  function setLD(crumbs){const base=location.href.split("#")[0],data=[{"@context":"https://schema.org","@type":"WebSite",name:SITE.name,description:DEF_DESC,inLanguage:"en",url:base,publisher:{"@type":"Organization",name:SITE.name,email:SITE.email,url:base}}];
-    if(crumbs.length)data.push({"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:crumbs.map((c,i)=>({"@type":"ListItem",position:i+1,name:c[0],item:base+c[1]}))});ld.textContent=JSON.stringify(data)}
-  function route(){
-    const r=$("rd"),h=location.hash,ma=h.match(/^#a-(.+)$/),mp=h.match(/^#p-(.+)$/),a=ma&&ARTICLES.find(x=>x.id===ma[1]),p=mp&&PAGES[mp[1]];
-    const open=(label,back,href,title,d)=>{r.setAttribute("aria-label",label);$("rdBack").textContent=back;$("rdBack").href=href;r.hidden=false;r.scrollTop=0;document.body.style.overflow="hidden";document.title=title+" – Style & Home Hub";desc.content=d;$("rdBody").tabIndex=-1;$("rdBody").focus({preventScroll:true})};
-    if(a){$("rdBody").innerHTML=`<span class="tag${a.cat==="wear"?" g":""}">${a.tag}</span><h1>${a.title}</h1><p class="dek">${a.dek}</p>${withFigs(a)}${related(a)}<p style="color:var(--mute);font-size:14px;margin-top:32px">Figures here are general guidance. Always check the product label or maker's chart.</p>`;open(a.title,"Back to articles","#articles",a.title,a.dek);setLD([["Home","#top"],["Guides and articles","#articles"],[a.title,"#a-"+a.id]])}
-    else if(p){$("rdBody").innerHTML=`<h1>${p.title}</h1><p class="dek">${p.dek}</p>${p.body}<p class="pgback"><a class="btn" href="#top">Back to Home</a></p>`;open(p.title,"Back to Home","#top",p.title,p.desc);setLD([["Home","#top"],[p.title,"#p-"+mp[1]]])}
-    else{r.hidden=true;document.body.style.overflow="";document.title=DEF_TITLE;desc.content=DEF_DESC;setLD([])}
-  }
-  chips();cards();addEventListener("hashchange",route);route();
-})();
-</script>
-<script id="photo-slots">
-/* PHOTO SLOTS: upload your own licensed photos to an /images folder using these file names.
-   If a file exists it replaces the illustration; if not, the illustration stays. */
-const PHOTO_SLOTS = [
-  { id: "heroArt", src: "images/hero-room.jpg", w: 1200, h: 800, alt: "Bright living room being measured for paint and flooring" },
-  { id: "catHome", src: "images/home-diy.jpg", w: 800, h: 400, alt: "Freshly painted room with a tape measure and paint roller" },
-  { id: "catWear", src: "images/clothing-measuring.jpg", w: 800, h: 400, alt: "Tape measure and folded clothes for checking clothing sizes" }
-];
-PHOTO_SLOTS.forEach(s => {
-  const img = new Image();
-  img.onload = () => { const el = document.getElementById(s.id); if (!el) return; img.alt = s.alt; img.width = s.w; img.height = s.h; img.decoding = "async"; img.loading = s.id === "heroArt" ? "eager" : "lazy"; el.innerHTML = ""; el.appendChild(img); };
-  img.src = s.src;
-});
-</script>
-<script>
-const $=id=>document.getElementById(id);
-// menu
-$('mb').onclick=()=>{const o=$('nav').classList.toggle('open');$('mb').setAttribute('aria-expanded',o)};
-$('nav').onclick=e=>{if(e.target.tagName=='A')$('nav').classList.remove('open')};
-// units
-let ft=true;
-function setU(f){ft=f;$('uf').setAttribute('aria-pressed',f);$('um').setAttribute('aria-pressed',!f);
-document.querySelectorAll('.u').forEach(e=>e.textContent=f?'ft':'m');document.querySelectorAll('.a').forEach(e=>e.textContent=f?'sq ft':'m²')}
-$('uf').onclick=()=>setU(true);$('um').onclick=()=>setU(false);
-const n=id=>Math.max(0,parseFloat($(id).value)||0);
-$('fb').onclick=()=>{const a=n('fl')*n('fw');if(!a){$('fr').textContent='Enter a length and width above zero.';return}
-const t=a*(1+ +$('fx').value/100),p=n('fp'),u=ft?'sq ft':'m²';
-$('fr').innerHTML=`Room: <b>${a.toFixed(1)} ${u}</b>. With waste: <b>${t.toFixed(1)} ${u}</b>.`+(p?`<br>Buy <b>${Math.ceil(t/p)} packs</b> of ${p} ${u}.`:'')};
-$('cb').onclick=()=>{const w=n('cw'),d=n('cd'),f=+$('cx').value,k=+$('cp').value;if(!w||!d){$('cr').textContent='Enter a track width and drop.';return}
-const hem=ft?.5:.15,tw=w*f,u=ft?'ft':'m';
-$('cr').innerHTML=`Total fabric width: <b>${tw.toFixed(1)} ${u}</b>${k==2?` (<b>${(tw/2).toFixed(1)} ${u}</b> per curtain)`:''}.<br>Finished length: <b>${d.toFixed(1)} ${u}</b>; cut length with hems about <b>${(d+hem*2).toFixed(1)} ${u}</b>.`};
-// search
-$('q').oninput=()=>{const s=$('q').value.trim().toLowerCase();let hit=0,arts=0;
-document.querySelectorAll('.k').forEach(e=>{const m=!s||(e.dataset.t+' '+e.textContent).toLowerCase().includes(s);e.style.display=m?'':'none';if(m&&s)hit++;});
-document.querySelectorAll('.art').forEach(e=>{if(e.style.display!='none')arts++});
-$('none').style.display=(s&&!hit)?'block':'none';
-if(s&&hit)location.hash='#tools'};
-$('nf').onsubmit=e=>{e.preventDefault();e.target.innerHTML='<b>Newsletter sign-up is not open yet, so nothing was saved. Please check back soon.</b>'};
-// contact
-$('cf2').onsubmit=e=>{e.preventDefault();const m=$('msg');
-if(!$('nm').value.trim()||!/^\S+@\S+\.\S+$/.test($('em').value)||!$('ms').value.trim()){m.style.color='var(--plum)';m.textContent='Add your name, a valid email address and a message.';return}
-m.style.color='var(--teal)';m.textContent='Your email app should open with your message ready to send. If it does not, please email '+SITE.email+' directly.';location.href='mailto:'+SITE.email+'?subject='+encodeURIComponent('Message from Style & Home Hub')+'&body='+encodeURIComponent('Name: '+$('nm').value+'\nEmail: '+$('em').value+'\n\n'+$('ms').value);e.target.reset()};
-</script>
-</body>
-</html>
+  const fig=x=>`<figure class="fig"><svg viewBox="0 0 400 250" role="img" aria-label="${x[1]}"><use hre
