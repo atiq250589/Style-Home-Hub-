@@ -204,6 +204,7 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 .phold{background:var(--sun);color:#12202b;padding:2px 8px;border-radius:6px;font-weight:600}
 .pgback{margin-top:40px}
 .formula{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brass);border-radius:0 12px 12px 0;padding:12px 16px;font-weight:600;overflow-x:auto}
+.chk{list-style:none;padding:0}.chk li{padding:9px 0;border-bottom:1px solid var(--line)}.chk li:before{content:"\2610\00a0\00a0"}
 </style>
 </head>
 <body>
@@ -219,6 +220,7 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 <symbol id="fig-shirt" viewBox="0 0 400 250"><path class="fo" d="M150 40l25 12h50l25-12 55 45-25 30-25-18v113H145V97l-25 18-25-30z"/><path class="fa" d="M175 30h50M175 24v12M225 24v12M145 140h110M145 134v12M255 134v12"/><path class="fa fdash" d="M200 52L100 100"/><text x="200" y="18" class="ft" text-anchor="middle">Collar</text><text x="200" y="132" class="ft" text-anchor="middle">Chest</text><text x="118" y="70" class="ft" text-anchor="middle">Sleeve</text></symbol>
 <symbol id="fig-trouser" viewBox="0 0 400 250"><path class="fo" d="M145 45h110l10 175h-55l-10-115-10 115h-55z"/><path class="fa" d="M145 32h110M145 26v12M255 26v12M200 45v60M170 105v115M164 105h12M164 220h12M210 235h55"/><path class="fl fdash" d="M138 165h28"/><text x="200" y="18" class="ft" text-anchor="middle">Waist</text><text x="222" y="80" class="ft">Rise</text><text x="100" y="169" class="ft" text-anchor="middle">Inseam</text><text x="320" y="239" class="ft" text-anchor="middle">Leg opening</text></symbol>
 <symbol id="fig-sizes" viewBox="0 0 400 250"><text x="200" y="28" class="ft" text-anchor="middle">Women's sizes: typical equivalents</text><rect x="20" y="50" width="360" height="42" rx="8" class="fo"/><rect x="20" y="102" width="360" height="42" rx="8" class="fo"/><rect x="20" y="154" width="360" height="42" rx="8" class="fo"/><g class="ft"><text x="36" y="77">US</text><text x="36" y="129">UK</text><text x="36" y="181">EU</text><text x="130" y="77">2</text><text x="190" y="77">4</text><text x="250" y="77">6</text><text x="310" y="77">8</text><text x="356" y="77">10</text><text x="130" y="129">6</text><text x="190" y="129">8</text><text x="250" y="129">10</text><text x="310" y="129">12</text><text x="356" y="129">14</text><text x="130" y="181">34</text><text x="190" y="181">36</text><text x="250" y="181">38</text><text x="310" y="181">40</text><text x="356" y="181">42</text></g><text x="200" y="228" class="fts" text-anchor="middle">Brands vary, so always check their size chart</text></symbol>
+<symbol id="fig-perimeter" viewBox="0 0 400 250"><rect x="90" y="50" width="220" height="130" class="fo"/><path class="fa" d="M90 32h220M90 26v12M310 26v12M335 50v130M329 50h12M329 180h12"/><text x="200" y="20" class="ft" text-anchor="middle">Length 12 ft</text><text x="372" y="112" class="ft" text-anchor="middle">Width</text><text x="372" y="128" class="ft" text-anchor="middle">12 ft</text><text x="200" y="110" class="ft" text-anchor="middle">Perimeter</text><text x="200" y="128" class="fts" text-anchor="middle">2 x (12 + 12) = 48 ft</text><text x="200" y="212" class="ft" text-anchor="middle">Wall area = perimeter x height</text><text x="200" y="232" class="fts" text-anchor="middle">48 x 8 ft = 384 sq ft</text></symbol>
 <symbol id="cat-home" viewBox="0 0 400 150"><rect width="400" height="150" fill="#0b6b6a"/><g class="fcw"><rect x="60" y="25" width="90" height="85"/><path d="M105 25v85M60 67h90M190 118h150v-28q0-14-14-14H204q-14 0-14 14zM205 76V56h120v20"/><path d="M30 138h340" stroke-width="10" stroke-dasharray="2 10"/></g></symbol>
 <symbol id="cat-wear" viewBox="0 0 400 150"><rect width="400" height="150" fill="#7d2452"/><g class="fcw"><path d="M200 34a8 8 0 1 1 8 8l-8 6v8M200 56L110 108H290z"/><path d="M30 138h340" stroke-width="10" stroke-dasharray="2 10"/></g></symbol>
 </defs></svg>
@@ -317,7 +319,7 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 </div></div></section>
 
 <section id="articles"><div class="w">
-<div class="head"><div><h2>Featured articles</h2><p>Eleven practical guides for real rooms and real wardrobes.</p></div></div>
+<div class="head"><div><h2>Featured articles</h2><p>Twelve practical guides for real rooms and real wardrobes.</p></div></div>
 <div class="seg big filt" id="filt" role="group" aria-label="Filter articles"></div><div class="arts" id="artGrid"></div><p class="none" id="none">No matches yet. Try "paint", "dress" or "curtain".</p></div></section>
 
 <section class="about" id="about"><div class="w">
@@ -518,6 +520,66 @@ const ARTICLES = [
 <tr><td>Paint needed</td><td>2.1 gal, so buy 3 gal or 2 gal plus a quart</td><td>5.6 L, so buy 6 L</td></tr></table>
 <h2>Things that change the answer</h2>
 <p>Bare plaster or drywall, dark-to-light colour changes and rough textures all use more paint. Ceilings, skirting or baseboards, and trim are extra. Coverage figures on tins are best-case, so check yours and round up.</p>`},
+{id:"measure-room-painting-complete-guide",cat:"home",tag:"Home DIY · Painting",min:9,title:"How to Measure a Room for Painting: A Complete Guide",dek:"Learn how to measure a room for painting: length, width, wall height, doors, windows and ceiling, with worked examples in feet and a saveable checklist.",related:[["#paint","Use the paint calculator"],["#a-how-much-paint-room","How to calculate how much paint you need for a room"],["#a-measure-room-painting","Quick-start version: how to measure a room for painting"],["#a-calculate-flooring","How to calculate flooring for a room"]],figs:[["fig-perimeter","Diagram of a 12 by 12 foot room showing length, width and perimeter used to calculate wall area for paint","A 12 × 12 ft room has a 48 ft perimeter. Multiply it by the wall height to get wall area."],["fig-paint","Wall diagram showing a door and a window area subtracted from the total wall area to find the paintable area","Doors and windows are measured separately and subtracted from the total wall area."]],body:`
+<p>Almost every paint mistake starts with a measuring mistake. Knowing how to measure a room for painting takes about ten minutes, and it saves you from buying too little paint (and matching a colour later) or paying for cans you never open.</p>
+<p>This guide walks through room measurement for painting from start to finish, using feet and inches with metric notes for UK readers. When you have your numbers, you can enter them into our <a href="#paint">paint calculator</a>. For a shorter overview, see our <a href="#a-measure-room-painting">quick-start measuring guide</a>, and for the buying side see <a href="#a-how-much-paint-room">How to Calculate How Much Paint You Need for a Room</a>.</p>
+<h2>What You Need to Measure</h2>
+<ul><li><b>Room length and width</b>, to get the distance around the walls.</li><li><b>Wall height</b>, from floor to ceiling.</li><li><b>Doors and windows</b>, so you can subtract areas you will not paint.</li><li><b>Ceiling</b>, only if you plan to paint it (length × width).</li></ul>
+<p>You need a tape measure (a 25 ft or 7.5 m tape is comfortable for most rooms), a notepad or phone, and a stepladder for high ceilings. Write every measurement down as you take it.</p>
+<h2>How to Measure Room Length and Width</h2>
+<ol><li>Start in one corner and hook the tape on the wall at floor level, or use a helper to hold the end.</li><li>Pull it straight along the base of the wall to the opposite corner.</li><li>Read the measurement to the nearest inch (or centimetre) and write it down.</li><li>Repeat for the width.</li><li>In an uneven room, measure every wall separately instead of assuming opposite walls match.</li></ol>
+<h3>Working with feet and inches</h3>
+<p>Convert inches to decimal feet by dividing by 12, so the arithmetic is easier. For example, 12 ft 6 in is 12.5 ft.</p>
+<table><tr><th>Inches</th><th>Decimal feet</th></tr><tr><td>3 in</td><td>0.25 ft</td></tr><tr><td>6 in</td><td>0.5 ft</td></tr><tr><td>9 in</td><td>0.75 ft</td></tr></table>
+<p>In the UK you can measure in metres and centimetres and keep everything metric. Just do not mix the two systems within one calculation.</p>
+<h2>How to Measure Wall Height</h2>
+<p>To measure walls for paint, run the tape from the floor to the ceiling. Take the reading in at least two places, such as near a corner and near the middle, because floors and ceilings are not always level. Use the larger figure if they differ. If your walls will be painted right down to the floor, measure from the floor. Sloped ceilings and gable walls are covered in the FAQ below.</p>
+<h2>Calculate the Total Wall Area</h2>
+<p>Add all the wall lengths to get the perimeter, then multiply by the wall height:</p>
+<p class="formula">Wall area = Room perimeter × Wall height</p>
+<p>For a rectangular room, the perimeter is 2 × (Length + Width). To calculate wall area for paint in a 12 ft × 12 ft room with an 8 ft ceiling:</p>
+<p class="formula">Perimeter = 2 × (12 + 12) = 48 ft</p>
+<p class="formula">Wall area = 48 × 8 = 384 sq ft</p>
+<p>This is the wall area before you subtract doors and windows.</p>
+<h2>Subtract Doors and Windows</h2>
+<p>Measure the width and height of each door and window, multiply them, and subtract the total from the wall area. Measure the whole opening, including the frame, if you will not be painting the frame in the wall colour.</p>
+<p class="formula">Opening area = Width × Height</p>
+<p>A realistic example: one door 3 ft wide by 6 ft 8 in (6.67 ft) high, and two windows each 3 ft wide by 4 ft high.</p>
+<ul><li>Door: 3 × 6.67 = 20 sq ft</li><li>Windows: 3 × 4 = 12 sq ft each, so 24 sq ft for two</li><li>Total openings: 20 + 24 = 44 sq ft</li></ul>
+<h2>Calculate Ceiling Area</h2>
+<p>If you are painting the ceiling, it is a separate, simpler calculation:</p>
+<p class="formula">Ceiling area = Room length × Room width</p>
+<p>For the 12 × 12 ft room: 12 × 12 = 144 sq ft. Ceiling paint is often a different product from wall paint, so calculate it on its own.</p>
+<h2>Calculate Paint Needed</h2>
+<p>Once you know the paintable area, use:</p>
+<p class="formula">Paint needed = Paintable area × Number of coats ÷ Paint coverage per gallon</p>
+<p>Paint coverage is the area one gallon (or litre) is expected to cover, and it is printed on the can. It varies by product and by surface condition, so use the manufacturer's label rather than a general figure. The examples here assume 350 sq ft per gallon purely to keep the maths simple. UK tins usually state coverage in square metres per litre, and the same formula works with metric units.</p>
+<h2>One-Coat vs Two-Coat Painting</h2>
+<p>One coat can be enough when you are refreshing a similar colour on a sound, previously painted wall and the product is designed for good coverage. Two coats are more likely when:</p>
+<ul><li>You are making a major colour change, especially light over dark.</li><li>The surface is porous, such as new plaster or drywall.</li><li>You have patched or filled areas that absorb paint differently.</li><li>The manufacturer recommends two coats.</li></ul>
+<h2>Example: Complete 12 × 12 Room Calculation</h2>
+<p>Room: 12 ft × 12 ft, 8 ft walls, one door, two windows, two coats, paint covering 350 sq ft per gallon.</p>
+<ol><li><b>Perimeter:</b> 2 × (12 + 12) = 48 ft</li><li><b>Four walls:</b> 48 × 8 = 384 sq ft</li><li><b>Openings:</b> 20 (door) + 24 (two windows) = 44 sq ft</li><li><b>Paintable area:</b> 384 − 44 = 340 sq ft</li><li><b>Two coats:</b> 340 × 2 = 680 sq ft</li><li><b>Paint:</b> 680 ÷ 350 = 1.94 gallons</li></ol>
+<p>Two gallons would just cover this, leaving little to spare, so many people buy a little extra for touch-ups. If you are also painting the ceiling with the same paint: 144 × 2 = 288 sq ft, and (680 + 288) ÷ 350 = 2.77 gallons, so plan for 3 gallons.</p>
+<h2>Common Measuring Mistakes</h2>
+<ul><li><b>Forgetting doors and windows.</b> Leaving them in makes you overestimate. Subtracting large ones gives a better number.</li><li><b>Measuring only one wall.</b> Measure all of them, or use the perimeter.</li><li><b>Mixing feet and inches.</b> Convert inches to decimal feet before multiplying.</li><li><b>Ignoring ceiling height.</b> A 10 ft wall needs more paint than an 8 ft wall.</li><li><b>Forgetting the number of coats.</b> Two coats roughly doubles the paint.</li><li><b>Assuming every paint covers the same area.</b> Check the label for your product.</li></ul>
+<h2>Quick Measurement Checklist</h2>
+<ul class="chk"><li>Length of every wall</li><li>Room width</li><li>Wall height, measured in two places</li><li>Width × height of each door</li><li>Width × height of each window</li><li>Ceiling length × width (if painting it)</li><li>Number of coats</li><li>Coverage from the paint label</li><li>Round up to the next can size</li></ul>
+<h2>Frequently Asked Questions</h2>
+<h3>How do I calculate paint for an irregular room?</h3>
+<p>Split the walls into simple shapes. Add alcoves and bay walls to the total, and subtract sections such as a chimney breast that you are not painting. For a triangular gable wall, the area is ½ × base × height.</p>
+<h3>Do I subtract windows from wall area?</h3>
+<p>You can, and it gives a more accurate result for large windows. For very small windows, some people leave them in as a built-in allowance.</p>
+<h3>How much paint do I need for a 12 × 12 room?</h3>
+<p>With 8 ft walls, the walls total 384 sq ft before openings. In the example above, one door, two windows and two coats came to about 1.94 gallons at 350 sq ft per gallon. Use your own paint's coverage.</p>
+<h3>Should I buy extra paint?</h3>
+<p>A small allowance is sensible for touch-ups and uneven absorption. Rounding up to the next can size is a simple way to build one in.</p>
+<h3>How do I measure a room with multiple doors?</h3>
+<p>Measure each door, multiply width by height, and add the areas together before subtracting the total. Do the same for windows.</p>
+<h3>Does ceiling paint require a separate calculation?</h3>
+<p>Yes. Ceiling area is length × width, and it is often calculated separately because the paint may differ from the wall paint.</p>
+<h2>Final Takeaway</h2>
+<p>Measure every wall, read the height in two places, work out the perimeter and wall area, subtract doors and windows, add the ceiling if needed, then multiply by the number of coats and divide by the coverage on the label. Treat the answer as an estimate, round up sensibly, and check your figures with the <a href="#paint">paint calculator</a>.</p>`},
 {id:"how-much-paint-room",cat:"home",tag:"Home DIY · Painting",min:11,title:"How to Calculate How Much Paint You Need for a Room",dek:"A step-by-step method to work out paint quantity from room size, coats and coverage, with worked examples.",related:[["#paint","Use the paint calculator"],["#a-measure-room-painting","How to measure a room for painting"],["#a-diy-wall-ideas","DIY wall decoration ideas"]],figs:[["fig-paint","Wall diagram showing a door and a window area subtracted from the total wall area to find the paintable area","Subtract doors and windows from the total wall area before working out paint."],["fig-room","Top-down room plan showing length, width, door, window and wall height measurements for painting","Length, width and wall height are the three measurements the calculation starts with."]],body:`
 <p>Painting a room can transform the look of your home, but buying the right amount of paint can be surprisingly difficult. Buy too little and you may have to make another trip to the store. Buy too much and you may be left with expensive cans you never use.</p>
 <p>The good news is that calculating how much paint you need is relatively simple once you know the room dimensions, the number of coats, and the approximate coverage of your paint.</p>
@@ -827,83 +889,4 @@ body: `<h2>How to get in touch</h2>
 privacy: { title: "Privacy Policy", desc: "How Style & Home Hub handles personal information, cookies, forms and third-party services, including possible future advertising and analytics.",
 dek: "Last updated: " + SITE.updated + ". Plain-language summary of what happens to your information.",
 body: `<h2>Summary</h2>
-<p>This policy explains how Style & Home Hub ("we", "us") handles information when you use this website. It separates what the site does <b>today</b> from services we <b>may add in the future</b>. We will update this page before adding any service that collects personal data or sets cookies.</p>
-<h2>What the site does today</h2>
-<table><tr><th>Item</th><th>Status</th></tr>
-<tr><td>Cookies or browser storage set by this site</td><td>None at the moment</td></tr>
-<tr><td>Calculators, converter and search</td><td>Run in your browser. The numbers you enter are not sent to us</td></tr>
-<tr><td>Contact forms</td><td>Submitting opens your own email app with a pre-filled message. Nothing reaches us unless you send it. If you do, we receive your email address and message</td></tr>
-<tr><td>Newsletter form</td><td>Not open at the moment, so nothing is collected</td></tr>
-<tr><td>Google Fonts</td><td>In use. Your browser requests fonts from Google, so Google receives technical data such as your IP address</td></tr>
-<tr><td>Web hosting</td><td>Our hosting provider may keep standard server logs, such as IP address and pages requested</td></tr>
-<tr><td>Analytics (such as Google Analytics)</td><td>Not in use at the moment</td></tr>
-<tr><td>Advertising (such as Google AdSense)</td><td>Not in use at the moment</td></tr></table>
-<h2>Services that may be added in the future</h2>
-<p>We may later add the following. If we do, this policy will be updated first, and where the law requires it we will ask for your consent before non-essential cookies are used.</p>
-<ul><li><b>Contact and newsletter forms.</b> If connected to an email or form service, we would receive the details you submit (name, email address, subject and message) and use them only to reply or to send what you asked for. Those services would process the data for us.</li>
-<li><b>Analytics.</b> Tools such as Google Analytics collect information about how visitors use a site, such as pages viewed, approximate location, device and browser type. We would use it to improve the site.</li>
-<li><b>Advertising.</b> If we show ads through Google AdSense, third-party vendors including Google use cookies to serve ads based on your previous visits to this and other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and other sites on the internet.</li></ul>
-<h2>Managing cookies and ad choices</h2>
-<p>Most browsers let you view, block or delete cookies in their settings (for example in Chrome, Safari, Firefox or Edge), and private browsing limits what is kept. If advertising is added, you will be able to opt out of personalized advertising at <a href="https://adssettings.google.com" rel="noopener">Google Ads Settings</a> or at <a href="https://www.aboutads.info" rel="noopener">aboutads.info</a>. You can also block or delete cookies in your browser settings, though some sites may work less well. If Google Analytics is added, Google offers a browser add-on to opt out.</p>
-<h2>How we handle information you send us</h2>
-<p>If you email us, we use your name, email address and message only to reply and to improve the site. Emails are kept in our email account for as long as needed for that purpose, and we then delete them. We do not sell personal information. We share it only if the law requires. No method of sending or storing data is completely secure, so please avoid sending sensitive personal details.</p>
-<h2>Your rights</h2>
-<p>Depending on where you live, you may have rights over your personal data. In the UK and EU (UK GDPR and GDPR) these include access, correction, deletion, restriction and objection, and the right to complain to a regulator such as the UK Information Commissioner's Office. Some US states give similar rights, such as the right to know, delete or opt out of certain sharing. To make a request, use the <a href="#p-contact">Contact page</a>.</p>
-<h2>Children</h2>
-<p>This site is for a general audience and is not directed at children under 13. We do not knowingly collect personal information from children.</p>
-<h2>Links to other sites</h2>
-<p>Our pages may link to other websites. We do not control their privacy practices, so please read their policies.</p>
-<h2>Changes and contact</h2>
-<p>We may update this policy and will change the date above when we do. Questions can be sent through the <a href="#p-contact">Contact page</a> or to ${ph}.</p>` },
-disclaimer: { title: "Disclaimer", desc: "Important information about the estimates, calculators and guides on Style & Home Hub, which are general information and not professional advice.",
-dek: "Last updated: " + SITE.updated + ". Please read before relying on any calculator or guide.",
-body: `<h2>General information only</h2>
-<p>The content on Style & Home Hub is provided for general informational and educational purposes. We aim to be accurate and helpful, but we make no guarantee that everything is complete, current or free from errors.</p>
-<h2>Calculators and guides give estimates</h2>
-<p>Our paint, flooring and curtain calculators, the size converter and the worked examples produce approximate results based on common assumptions. Check the numbers independently, and confirm them with the product label, manufacturer or supplier whenever accuracy matters, such as before buying materials or expensive clothing.</p>
-<h2>Not professional advice</h2>
-<p>Nothing on this site is professional, legal, financial, medical, construction, electrical, structural or other regulated advice. For work that affects safety, building regulations or your property, consult a qualified professional.</p>
-<h2>Results vary</h2>
-<p>Product details, measurements, clothing sizes and home-improvement requirements can differ by manufacturer, property, region and individual circumstances. Paint coverage, flooring pack sizes, brand size charts and fitting preferences all vary, and US and UK conventions are not always the same.</p>
-<h2>Your responsibility</h2>
-<p>You are responsible for your own decisions. Follow product instructions and safety guidance, use suitable equipment, and get professional help where needed. We are not responsible for decisions made solely on the basis of information on this website.</p>
-<h2>Limits of liability</h2>
-<p>To the fullest extent permitted by law, we are not liable for any loss or damage arising from use of, or reliance on, this website. Nothing in this disclaimer limits any liability that cannot be excluded by law.</p>
-<h2>Third-party content</h2>
-<p>Brand and product names are mentioned only as examples. We are not affiliated with them. We are not responsible for the content of external websites we link to.</p>
-<p>Questions about this disclaimer can go through the <a href="#p-contact">Contact page</a>.</p>` },
-terms: { title: "Terms of Use", desc: "Terms of Use for Style & Home Hub: how you may use the website, our content, external links and the limits of our responsibility.",
-dek: "Last updated: " + SITE.updated + ". Plain-language rules for using this website.",
-body: `<h2>Using the website</h2>
-<p>By using Style & Home Hub you agree to these terms. If you do not agree, please do not use the site. You may use the site for your own personal, non-commercial purposes.</p>
-<h2>Content and ownership</h2>
-<p>Unless stated otherwise, the text, calculators, illustrations and layout on this site belong to the site owner and are protected by copyright. You may share links to our pages and quote short excerpts with a clear credit and link back. Please do not copy, republish or sell substantial parts of the site without permission. Brand and product names belong to their owners.</p>
-<h2>Acceptable use</h2>
-<p>Please do not use the site to break the law, to interfere with its operation, to try to gain unauthorized access, to send malicious code, or to collect content in bulk with automated tools in a way that harms the site.</p>
-<h2>External links</h2>
-<p>Some pages may link to other websites. We do not control them and are not responsible for their content or practices. A link is not an endorsement.</p>
-<h2>Informational content</h2>
-<p>Our guides and calculators give general information and estimates, not professional advice. Please read our <a href="#p-disclaimer">Disclaimer</a> and check important measurements yourself.</p>
-<h2>Limitation of liability</h2>
-<p>The site is provided "as is" and "as available". To the fullest extent permitted by law, we are not liable for any loss or damage arising from your use of, or reliance on, the site. Nothing in these terms limits any liability that cannot be excluded by law.</p>
-<h2>Changes</h2>
-<p>We may change, suspend or remove parts of the site or its content at any time, and may update these terms. The date above shows the latest update. Continuing to use the site means you accept the updated terms.</p>
-<h2>Contact</h2>
-<p>Questions about these terms can be sent to ${ph} or through the <a href="#p-contact">Contact page</a>. See also our <a href="#p-privacy">Privacy Policy</a>.</p>` }
-};
-document.addEventListener("submit", e => {
-  if (e.target.id !== "pgForm") return;
-  e.preventDefault();
-  const f = e.target, m = document.getElementById("pgMsg"), d = Object.fromEntries(new FormData(f));
-  const say = (t, ok) => { m.style.color = ok ? "var(--teal)" : "var(--plum)"; m.textContent = t; };
-  if (!d.name.trim() || !/^\S+@\S+\.\S+$/.test(d.email) || !d.subject.trim() || !d.message.trim()) return say("Please complete all four fields and enter a valid email address.", false);
-  if (!SITE.formEndpoint) { location.href = "mailto:" + SITE.email + "?subject=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent("Name: " + d.name + "\nEmail: " + d.email + "\n\n" + d.message); return say("Your email app should open with your message ready to send. If it does not, please email " + SITE.email + " directly.", true); }
-  fetch(SITE.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(d) })
-    .then(r => { if (!r.ok) throw 0; say("Thank you. Your message has been sent.", true); f.reset(); })
-    .catch(() => say("Sorry, the message could not be sent. Please email us instead.", false));
-});
-</script>
-<script id="articles-ui">
-(function(){
-  const $=id=>document.getElementById(id);let f="all";
-  const fig=x=>`<figure class="fig"><svg viewBox="0 0 400 250" role="img" aria-label="${x[1]}"><use hre
+<p>This policy explains how Style & Home Hub ("we", "us") handles information when you use this website.
