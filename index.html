@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Style & Home Hub – DIY calculators and clothing size guides</title>
+<meta name="description" content="Free calculators, measuring guides and clothing size converters for home DIY and clothing, written for readers in the US and UK.">
+<meta name="robots" content="index,follow">
+<meta name="theme-color" content="#0f1b26">
+<meta property="og:type" content="website"><meta property="og:site_name" content="Style & Home Hub">
+<meta property="og:title" content="Style & Home Hub – DIY calculators and clothing size guides">
+<meta property="og:description" content="Free calculators, measuring guides and clothing size converters for home DIY and clothing, written for readers in the US and UK.">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json" id="ld"></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -187,6 +195,13 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 .ph.fg{background:var(--card);border:1px solid var(--line)}.ph.fg:after{display:none}.ph.fg svg{display:block;width:100%;height:100%}
 .figrow{display:grid;gap:16px;max-width:760px;margin:32px auto 0}.calcfig{max-width:560px;margin:28px auto 0}
 @media(min-width:760px){.figrow{grid-template-columns:1fr 1fr}}
+
+/* pages */
+.rd a.btn{color:var(--bg)}#rdBody:focus{outline:none}
+.pgform{display:grid;gap:16px;margin:18px 0;max-width:560px}.pgform textarea{height:160px}.pgform .req{color:var(--plum)}
+.ccard{border:1px solid var(--line);background:var(--card);border-radius:16px;padding:18px;margin:16px 0}.ccard small{color:var(--mute)}
+.phold{background:var(--sun);color:#12202b;padding:2px 8px;border-radius:6px;font-weight:600}
+.pgback{margin-top:40px}
 </style>
 </head>
 <body>
@@ -310,7 +325,7 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 <section class="news"><div class="w"><div><h2>New guides, once a month</h2><p>One short email with new calculators and size guides.</p></div><form id="nf"><input type="email" placeholder="Email address" aria-label="Email address" required><button class="btn" type="submit">Subscribe</button></form></div></section>
 
 <section class="contact" id="contact"><div class="w">
-<div class="head"><div><h2>Contact</h2><p>Suggest a guide, report an error or ask a question.</p></div></div>
+<div class="head"><div><h2>Contact</h2><p>Suggest a guide, report an error or ask a question. You can also email <a href="mailto:homehubstyle@gmail.com">homehubstyle@gmail.com</a> or visit the <a href="#p-contact">Contact Us page</a>.</p></div></div>
 <form id="cf2" novalidate><div><label for="nm">Name</label><input id="nm" type="text" autocomplete="name"></div>
 <div><label for="em">Email</label><input id="em" type="email" autocomplete="email"></div>
 <div><label for="ms">Message</label><textarea id="ms"></textarea></div>
@@ -318,11 +333,11 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 </div></section>
 </main>
 
-<div class="rd" id="rd" hidden role="dialog" aria-label="Article"><div class="rdbar"><div class="w"><a class="lnk" href="#articles">Back to articles</a></div></div><article class="w" id="rdBody"></article></div>
+<div class="rd" id="rd" hidden role="dialog" aria-label="Article"><div class="rdbar"><div class="w"><a class="lnk" id="rdBack" href="#articles">Back to articles</a></div></div><article class="w" id="rdBody"></article></div>
 <footer><div class="w"><div class="fg"><div><b class="fl">Style &amp; Home Hub</b><p>Practical calculators and size guides for US and UK readers.</p></div>
 <div><h4>Home DIY</h4><a href="#paint">Paint calculator</a><a href="#tools">Flooring calculator</a><a href="#tools">Curtain guide</a><a href="#articles">Wall ideas</a></div>
 <div><h4>Garments &amp; Clothing</h4><a href="#converter">Size converter</a><a href="#articles">Dress sizes</a><a href="#articles">Shirt &amp; trouser sizes</a><a href="#articles">Fabric &amp; care</a></div>
-<div><h4>Site</h4><a href="#about">About</a><a href="#contact">Contact</a><a href="#top">Back to top</a></div></div>
+<div><h4>Site</h4><a href="#top">Home</a><a href="#p-about">About Us</a><a href="#p-contact">Contact Us</a><a href="#p-privacy">Privacy Policy</a><a href="#p-disclaimer">Disclaimer</a><a href="#p-terms">Terms of Use</a></div></div>
 <p class="cp">© 2026 Style &amp; Home Hub. Sizes and quantities are estimates; check brand charts and pack sizes before buying.</p></div></footer>
 
 <script id="size-data">
@@ -481,7 +496,7 @@ const PaintCalculator = {
 <script id="articles-data">
 /* ARTICLES: add or edit entries here. cat is "home" or "wear". body is plain HTML. */
 const ARTICLES = [
-{id:"measure-room-painting",figs:[["fig-room", "Top-down room plan showing length, width, door, window and wall height measurements for painting", "Measure the length and width along the walls, then the floor-to-ceiling height."], ["fig-paint", "Wall diagram showing a door and a window area subtracted from the total wall area to find the paintable area", "Subtract doors and windows from the total wall area before working out paint."]],cat:"home",tag:"Home DIY · Painting",min:5,title:"How to Measure a Room for Painting",dek:"Work out wall area, subtract openings, and turn it into gallons or litres.",body:`
+{id:"measure-room-painting",related:[["#paint", "Use the paint calculator"], ["#a-calculate-flooring", "How to calculate flooring for a room"], ["#a-diy-wall-ideas", "DIY wall decoration ideas"]],figs:[["fig-room", "Top-down room plan showing length, width, door, window and wall height measurements for painting", "Measure the length and width along the walls, then the floor-to-ceiling height."], ["fig-paint", "Wall diagram showing a door and a window area subtracted from the total wall area to find the paintable area", "Subtract doors and windows from the total wall area before working out paint."]],cat:"home",tag:"Home DIY · Painting",min:5,title:"How to Measure a Room for Painting",dek:"Work out wall area, subtract openings, and turn it into gallons or litres.",body:`
 <p>Paint is sold by volume, but you buy it by area. The steps below get you from a tape measure to a sensible quantity. You can also use the <a href="#paint">paint calculator</a>.</p>
 <h2>What you need</h2><ul><li>Tape measure or laser measure</li><li>Notepad or phone</li><li>The coverage figure printed on the paint can you plan to buy</li></ul>
 <h2>Step by step</h2>
@@ -500,7 +515,7 @@ const ARTICLES = [
 <tr><td>Paint needed</td><td>2.1 gal, so buy 3 gal or 2 gal plus a quart</td><td>5.6 L, so buy 6 L</td></tr></table>
 <h2>Things that change the answer</h2>
 <p>Bare plaster or drywall, dark-to-light colour changes and rough textures all use more paint. Ceilings, skirting or baseboards, and trim are extra. Coverage figures on tins are best-case, so check yours and round up.</p>`},
-{id:"calculate-flooring",figs:[["fig-floor", "Floor plans of a rectangular room and an L-shaped room split into two rectangles to calculate flooring area", "Split an L-shaped room into rectangles, calculate each area and add them together."]],cat:"home",tag:"Home DIY · Flooring",min:5,title:"How to Calculate Flooring for a Room",dek:"Measure the floor, add a waste allowance, and round up to whole packs.",body:`
+{id:"calculate-flooring",related:[["#tools", "Use the flooring calculator"], ["#a-measure-room-painting", "How to measure a room for painting"], ["#a-small-bedroom-organization", "Small bedroom organization ideas"]],figs:[["fig-floor", "Floor plans of a rectangular room and an L-shaped room split into two rectangles to calculate flooring area", "Split an L-shaped room into rectangles, calculate each area and add them together."]],cat:"home",tag:"Home DIY · Flooring",min:5,title:"How to Calculate Flooring for a Room",dek:"Measure the floor, add a waste allowance, and round up to whole packs.",body:`
 <p>Flooring is sold in packs that cover a fixed area, so the aim is total area plus waste, divided by pack coverage.</p>
 <h2>1. Measure the floor area</h2>
 <p>For a rectangular room, multiply length by width. For an L-shaped room, split it into rectangles, calculate each and add them. Include alcoves and doorways where flooring will run through. Leave out fitted cabinets, which are normally installed on top of the floor.</p>
@@ -515,7 +530,7 @@ const ARTICLES = [
 <h2>Before you order</h2>
 <ul><li>Buy everything in one go so the batch or dye lot matches.</li><li>Check whether you need underlay, trims or adhesive.</li><li>Allow an expansion gap at the walls if the product needs one.</li><li>Keep a spare pack for future repairs.</li></ul>
 <p>Stairs are measured separately, by tread and riser.</p>`},
-{id:"measure-windows-curtains",figs:[["fig-curtain", "Window with a curtain pole extending past both sides and a labelled drop from pole to floor", "Measure the pole width and the drop after the pole is fitted."]],cat:"home",tag:"Home DIY · Curtains",min:5,title:"How to Measure Windows for Curtains",dek:"Choose the pole position, then work out width, drop and fullness.",body:`
+{id:"measure-windows-curtains",related:[["#tools", "Use the curtain measuring tool"], ["#a-measure-room-painting", "How to measure a room for painting"], ["#a-small-bedroom-organization", "Small bedroom organization ideas"]],figs:[["fig-curtain", "Window with a curtain pole extending past both sides and a labelled drop from pole to floor", "Measure the pole width and the drop after the pole is fitted."]],cat:"home",tag:"Home DIY · Curtains",min:5,title:"How to Measure Windows for Curtains",dek:"Choose the pole position, then work out width, drop and fullness.",body:`
 <p>Measure after you have fitted the pole or track, not before. Use a steel tape measure and a stepladder.</p>
 <h2>Width</h2>
 <ol><li>Measure the window or recess width.</li><li>Extend the pole or track past each side, commonly 4 to 8 inches (10 to 20 cm), so the curtains clear the glass when open.</li><li>Measure the full pole or track length.</li><li>Multiply by the fullness you want: about 1.5× for a light look, 2× for standard, 2.5× for a fuller look. Heading styles differ, so check the maker's guidance.</li></ol>
@@ -526,7 +541,7 @@ const ARTICLES = [
 <p>A 48 in window with a 60 in pole and 2× fullness needs 120 in of finished width, or 60 in per curtain in a pair. In metric, a 160 cm track gives 320 cm total, or 160 cm per curtain. For a 215 cm floor-length drop, order a 213 to 214 cm curtain, plus any hem allowance the seller states.</p>
 <h2>Check</h2>
 <p>Measure the drop at both ends and the middle. Floors and ceilings are rarely level.</p>`},
-{id:"small-bedroom-organization",figs:[["fig-organize", "Bedroom side view showing under-bed storage boxes, a double-hang wardrobe rail and a wall shelf", "Under-bed boxes, a double-hang rail and wall shelves add storage without using floor space."]],cat:"home",tag:"Home DIY · Organization",min:5,title:"Small Bedroom Organization Ideas",dek:"Practical ways to gain storage without buying furniture that overwhelms the room.",body:`
+{id:"small-bedroom-organization",related:[["#a-diy-wall-ideas", "DIY wall decoration ideas"], ["#a-measure-windows-curtains", "How to measure windows for curtains"], ["#a-calculate-flooring", "How to calculate flooring for a room"]],figs:[["fig-organize", "Bedroom side view showing under-bed storage boxes, a double-hang wardrobe rail and a wall shelf", "Under-bed boxes, a double-hang rail and wall shelves add storage without using floor space."]],cat:"home",tag:"Home DIY · Organization",min:5,title:"Small Bedroom Organization Ideas",dek:"Practical ways to gain storage without buying furniture that overwhelms the room.",body:`
 <p>Start by taking everything out of one area, such as a drawer or the floor of the wardrobe. Keep what you use, and move seasonal or sentimental items elsewhere. Storage works best after you have less to store.</p>
 <h2>Ideas that work in tight spaces</h2>
 <table><tr><th>Problem</th><th>Fix</th><th>Measure first</th></tr>
@@ -539,7 +554,7 @@ const ARTICLES = [
 <ul><li><b>One in, one out.</b> Donate something when something new arrives.</li><li><b>Give everything a home,</b> including a small tray for keys, jewellery or chargers.</li><li><b>Rotate seasons.</b> Store off-season clothes in labelled boxes under the bed or on top of the wardrobe.</li><li><b>Fold upright</b> in drawers so you can see each item.</li></ul>
 <h2>Safety</h2>
 <p>Fix tall shelving to the wall. Anchor heavy shelves into studs or use wall fixings rated for the load, and keep sleeping areas clear of anything that could fall.</p>`},
-{id:"diy-wall-ideas",figs:[["fig-wall", "Wall with a gallery arrangement of frames centred at eye level, about 57 inches or 145 centimetres from the floor", "Centre a gallery arrangement at about 57 in (145 cm) from the floor."]],cat:"home",tag:"Home DIY · Walls",min:6,title:"DIY Wall Decoration Ideas",dek:"Five approachable projects, from gallery walls to simple panelling.",body:`
+{id:"diy-wall-ideas",related:[["#paint", "Use the paint calculator"], ["#a-measure-room-painting", "How to measure a room for painting"], ["#a-small-bedroom-organization", "Small bedroom organization ideas"]],figs:[["fig-wall", "Wall with a gallery arrangement of frames centred at eye level, about 57 inches or 145 centimetres from the floor", "Centre a gallery arrangement at about 57 in (145 cm) from the floor."]],cat:"home",tag:"Home DIY · Walls",min:6,title:"DIY Wall Decoration Ideas",dek:"Five approachable projects, from gallery walls to simple panelling.",body:`
 <h2>1. Gallery wall</h2>
 <p>Cut paper templates of each frame and tape them to the wall to test the layout. Hang the centre of the arrangement at about 57 in (145 cm) from the floor, and keep gaps of 2 to 3 in (5 to 8 cm) between frames.</p>
 <h2>2. Colour block or arch</h2>
@@ -552,7 +567,7 @@ const ARTICLES = [
 <p>Peel-and-stick wallpaper, adhesive hooks and leaning shelves avoid drilling. Test a small hidden patch first, since some paints lift when adhesive is removed.</p>
 <h2>Before you start</h2>
 <ul><li>Check for pipes and wires before drilling.</li><li>Wipe walls clean so paint and adhesive hold.</li><li>Measure twice, mark lightly in pencil, and check level.</li></ul>`},
-{id:"us-vs-uk-sizes",figs:[["fig-sizes", "Chart of women's dress sizes showing US, UK and EU equivalents side by side", "Typical women's equivalents: UK is usually US plus 4, and EU is usually US plus 32."]],cat:"wear",tag:"Clothing · Sizes",min:5,title:"US vs UK Clothing Sizes",dek:"Where the numbers differ, where they match, and why you should still check the chart.",body:`
+{id:"us-vs-uk-sizes",related:[["#converter", "Use the US, UK and EU size converter"], ["#a-measure-yourself", "How to measure yourself for clothes"], ["#a-womens-dress-sizes", "Women's dress size guide"]],figs:[["fig-sizes", "Chart of women's dress sizes showing US, UK and EU equivalents side by side", "Typical women's equivalents: UK is usually US plus 4, and EU is usually US plus 32."]],cat:"wear",tag:"Clothing · Sizes",min:5,title:"US vs UK Clothing Sizes",dek:"Where the numbers differ, where they match, and why you should still check the chart.",body:`
 <p>The same garment can carry a different number on each side of the Atlantic, though the differences follow simple patterns.</p>
 <h2>Women's clothing</h2>
 <p>UK sizes are usually four higher than US sizes, and EU sizes are usually 32 higher.</p>
@@ -563,7 +578,7 @@ const ARTICLES = [
 <p>US sizes follow age (2T, 3T, 4T, 5, 6). UK sizes usually list age or height, and EU sizes list height in centimetres.</p>
 <h2>Why numbers still mislead</h2>
 <p>Brands cut their sizes differently, and some make a given size larger than in the past. If a label and a size chart disagree, trust the chart and your own measurements. See <a href="#a-measure-yourself">how to measure yourself</a>, or use the <a href="#converter">size converter</a>.</p>`},
-{id:"measure-yourself",figs:[["fig-body", "Body outline showing where to measure neck, bust or chest, waist, hips and inseam", "Where to place the tape for the main body measurements."]],cat:"wear",tag:"Clothing · Measuring",min:5,title:"How to Measure Yourself for Clothes",dek:"The seven body measurements that answer most sizing questions.",body:`
+{id:"measure-yourself",related:[["#converter", "Use the US, UK and EU size converter"], ["#a-womens-dress-sizes", "Women's dress size guide"], ["#a-mens-shirt-sizes", "Men's shirt size guide"], ["#a-measure-trousers", "How to measure for trousers"]],figs:[["fig-body", "Body outline showing where to measure neck, bust or chest, waist, hips and inseam", "Where to place the tape for the main body measurements."]],cat:"wear",tag:"Clothing · Measuring",min:5,title:"How to Measure Yourself for Clothes",dek:"The seven body measurements that answer most sizing questions.",body:`
 <p>Use a soft tape measure and wear light, close-fitting clothing. Stand relaxed, keep the tape level with the floor, and keep it snug but not tight. A friend makes it more accurate.</p>
 <table><tr><th>Measurement</th><th>Where</th></tr>
 <tr><td>Bust or chest</td><td>Around the fullest part, under the arms and across the shoulder blades</td></tr>
@@ -576,7 +591,7 @@ const ARTICLES = [
 <h2>Tips</h2>
 <ul><li>Write down inches and centimetres. 1 inch is 2.54 cm.</li><li>Measure twice and use the larger figure if the two differ.</li><li>Re-measure if your weight or fitness has changed.</li><li>Compare your numbers with the brand's chart, since charts differ.</li></ul>
 <p>If you fall between two sizes, choose by the part that is hardest to alter, such as shoulders or hips, and get the rest tailored.</p>`},
-{id:"womens-dress-sizes",figs:[["fig-dress", "Dress outline showing bust, waist, hip and length measurements", "Compare your bust, waist and hip measurements with the brand's chart, and check the dress length."]],cat:"wear",tag:"Clothing · Dresses",min:6,title:"Women's Dress Size Guide",dek:"Convert US, UK and EU sizes and pick the right fit for the style.",body:`
+{id:"womens-dress-sizes",related:[["#converter", "Use the US, UK and EU size converter"], ["#a-measure-yourself", "How to measure yourself for clothes"], ["#a-us-vs-uk-sizes", "US vs UK clothing sizes"]],figs:[["fig-dress", "Dress outline showing bust, waist, hip and length measurements", "Compare your bust, waist and hip measurements with the brand's chart, and check the dress length."]],cat:"wear",tag:"Clothing · Dresses",min:6,title:"Women's Dress Size Guide",dek:"Convert US, UK and EU sizes and pick the right fit for the style.",body:`
 <h2>Size equivalents</h2>
 <table><tr><th>US</th><th>UK</th><th>EU</th></tr><tr><td>0</td><td>4</td><td>32</td></tr><tr><td>2</td><td>6</td><td>34</td></tr><tr><td>4</td><td>8</td><td>36</td></tr><tr><td>6</td><td>10</td><td>38</td></tr><tr><td>8</td><td>12</td><td>40</td></tr><tr><td>10</td><td>14</td><td>42</td></tr><tr><td>12</td><td>16</td><td>44</td></tr><tr><td>14</td><td>18</td><td>46</td></tr><tr><td>16</td><td>20</td><td>48</td></tr></table>
 <p>These are typical equivalents. Every brand publishes its own bust, waist and hip ranges for each size.</p>
@@ -586,7 +601,7 @@ const ARTICLES = [
 <h2>Fit by style</h2>
 <ul><li><b>Fitted or bodycon:</b> follow the chart closely. Stretch fabrics forgive more.</li><li><b>Wrap:</b> adjustable at the waist, so size by bust.</li><li><b>A-line or shift:</b> size by bust or shoulders.</li><li><b>Length:</b> measure from shoulder to hem and compare it with the listed length.</li></ul>
 <p>Check the return policy when ordering online, especially from a brand you have not bought before.</p>`},
-{id:"mens-shirt-sizes",figs:[["fig-shirt", "Shirt outline showing collar, chest and sleeve length measurements", "Collar, chest and sleeve are the key shirt measurements."]],cat:"wear",tag:"Clothing · Shirts",min:5,title:"Men's Shirt Size Guide",dek:"Collar, sleeve and fit explained, with US, UK and EU equivalents.",body:`
+{id:"mens-shirt-sizes",related:[["#converter", "Use the US, UK and EU size converter"], ["#a-measure-yourself", "How to measure yourself for clothes"], ["#a-measure-trousers", "How to measure for trousers"]],figs:[["fig-shirt", "Shirt outline showing collar, chest and sleeve length measurements", "Collar, chest and sleeve are the key shirt measurements."]],cat:"wear",tag:"Clothing · Shirts",min:5,title:"Men's Shirt Size Guide",dek:"Collar, sleeve and fit explained, with US, UK and EU equivalents.",body:`
 <p>Dress shirts are sized by collar and sleeve. Casual shirts usually use S, M, L and so on.</p>
 <h2>Collar sizes</h2>
 <table><tr><th>US / UK (in)</th><th>EU (cm)</th><th>Often sold as</th></tr><tr><td>14</td><td>36</td><td>S</td></tr><tr><td>14½</td><td>37</td><td>S</td></tr><tr><td>15</td><td>38</td><td>M</td></tr><tr><td>15½</td><td>39</td><td>M</td></tr><tr><td>16</td><td>41</td><td>L</td></tr><tr><td>16½</td><td>42</td><td>L</td></tr><tr><td>17</td><td>43</td><td>XL</td></tr><tr><td>17½</td><td>44</td><td>XL</td></tr></table>
@@ -596,7 +611,7 @@ const ARTICLES = [
 <h2>Choosing the fit</h2>
 <p><b>Slim</b> shirts are cut closer to the body, <b>regular</b> shirts allow more room, and <b>relaxed or classic</b> is the roomiest. If your chest is large for your collar size, look for regular fit.</p>
 <p>Button the collar and check that you can slide a finger inside. Cotton can shrink slightly, so read the care label and consider that when choosing. Convert other sizes with the <a href="#converter">size converter</a>.</p>`},
-{id:"measure-trousers",figs:[["fig-trouser", "Trousers outline showing waist, rise, inseam and leg opening measurements", "The main trouser measurements to check on a pair that fits."]],cat:"wear",tag:"Clothing · Trousers",min:5,title:"How to Measure for Trousers",dek:"Waist, inseam, rise and hips, plus how to convert between US, UK and EU.",body:`
+{id:"measure-trousers",related:[["#converter", "Use the US, UK and EU size converter"], ["#a-mens-shirt-sizes", "Men's shirt size guide"], ["#a-us-vs-uk-sizes", "US vs UK clothing sizes"]],figs:[["fig-trouser", "Trousers outline showing waist, rise, inseam and leg opening measurements", "The main trouser measurements to check on a pair that fits."]],cat:"wear",tag:"Clothing · Trousers",min:5,title:"How to Measure for Trousers",dek:"Waist, inseam, rise and hips, plus how to convert between US, UK and EU.",body:`
 <p>The most reliable method is to measure a pair that already fits you, laid flat. Otherwise use your body measurements.</p>
 <h2>Measurements you need</h2>
 <table><tr><th>Measurement</th><th>How</th></tr>
@@ -614,18 +629,141 @@ const ARTICLES = [
 <p>Compare your numbers with the brand's chart, and see <a href="#a-measure-yourself">how to measure yourself</a> for the basics.</p>`}
 ];
 </script>
+<script id="site-pages">
+/* SITE SETTINGS: change these once and every page updates.
+   email: the official contact address, used on every page.
+   formEndpoint: optional form service URL (for example from Formspree). While empty, the contact form opens the visitor's email app with the message ready to send. */
+const SITE = { name: "Style & Home Hub", email: "homehubstyle@gmail.com", updated: "September 30, 2026", formEndpoint: "" };
+const ph = `<a href="mailto:${SITE.email}">${SITE.email}</a>`;
+/* PAGES: edit the text below. Each page opens at #p-about, #p-contact, #p-privacy, #p-disclaimer and #p-terms. */
+const PAGES = {
+about: { title: "About Us", desc: "About Style & Home Hub, a small independent website with practical guides, calculators and size information for readers in the US and UK.",
+dek: "A small, independent site with practical guides for US and UK readers.",
+body: `<h2>What this site is</h2>
+<p>Style & Home Hub is a small independent website. It offers practical, easy-to-understand guides, calculators and measuring tools for two everyday topics: home DIY and clothing sizes. It is written for readers in the United States and the United Kingdom, so examples usually show both feet and gallons and metres and litres.</p>
+<h2>What you will find</h2>
+<ul><li><b>Home DIY:</b> a paint calculator, a flooring calculator, a curtain measuring tool, and guides on measuring rooms, organizing small spaces and decorating walls.</li>
+<li><b>Garments & Clothing:</b> a US, UK and EU size converter, plus guides to measuring yourself and choosing dress, shirt and trouser sizes.</li></ul>
+<h2>How we write</h2>
+<p>Our guides explain the method step by step, show worked examples, and use common rules of thumb. We are not a manufacturer, retailer, trade body or professional organisation, and we do not claim formal qualifications in construction, tailoring or design. Please read our <a href="#p-disclaimer">Disclaimer</a> before relying on any estimate.</p>
+<h2>Corrections and feedback</h2>
+<p>If you spot a mistake or have a suggestion, please use the <a href="#p-contact">Contact page</a> or email ${ph}. We review feedback as time allows.</p>
+<h2>Independence</h2>
+<p>We are not affiliated with the clothing brands or paint, flooring and curtain makers mentioned in our examples. At the time of writing, the site does not display advertising. If that changes, we will say so in our <a href="#p-privacy">Privacy Policy</a>.</p>` },
+contact: { title: "Contact Us", desc: "Contact Style & Home Hub with questions, corrections or suggestions. Use the contact form or the email address shown.",
+dek: "Questions, corrections or ideas for a new guide? We would like to hear from you.",
+body: `<h2>How to get in touch</h2>
+<p>The best way to reach us is by email at ${ph}. You can also use the form below, which opens your email app with your message ready to send. Please include as much detail as you can, such as the page you are reading and what you expected to see.</p>
+<div class="ccard"><b>Email:</b> ${ph}<br><small>We do not publish a phone number or physical address. All contact is by email.</small></div>
+<h2>Send a message</h2>
+<p>Fill in the form and press the button. Your email app will open with the message addressed to us. Nothing is sent until you send it from your own email account.</p>
+<form id="pgForm" class="pgform" novalidate>
+<div><label for="ctName">Name <span class="req">*</span></label><input id="ctName" name="name" type="text" autocomplete="name" required></div>
+<div><label for="ctEmail">Email <span class="req">*</span></label><input id="ctEmail" name="email" type="email" autocomplete="email" required></div>
+<div><label for="ctSubject">Subject <span class="req">*</span></label><input id="ctSubject" name="subject" type="text" required></div>
+<div><label for="ctMsg">Message <span class="req">*</span></label><textarea id="ctMsg" name="message" required></textarea></div>
+<div><button class="btn" type="submit">Send message</button></div>
+<div id="pgMsg" role="status" aria-live="polite"></div></form>
+<h2>Good to know</h2>
+<ul><li>We reply as time allows and cannot promise a response time.</li><li>We cannot give personal advice on building work, legal, financial or medical matters. See our <a href="#p-disclaimer">Disclaimer</a>.</li><li>Please do not send sensitive personal information. See our <a href="#p-privacy">Privacy Policy</a> for how messages are handled.</li></ul>` },
+privacy: { title: "Privacy Policy", desc: "How Style & Home Hub handles personal information, cookies, forms and third-party services, including possible future advertising and analytics.",
+dek: "Last updated: " + SITE.updated + ". Plain-language summary of what happens to your information.",
+body: `<h2>Summary</h2>
+<p>This policy explains how Style & Home Hub ("we", "us") handles information when you use this website. It separates what the site does <b>today</b> from services we <b>may add in the future</b>. We will update this page before adding any service that collects personal data or sets cookies.</p>
+<h2>What the site does today</h2>
+<table><tr><th>Item</th><th>Status</th></tr>
+<tr><td>Cookies or browser storage set by this site</td><td>None at the moment</td></tr>
+<tr><td>Calculators, converter and search</td><td>Run in your browser. The numbers you enter are not sent to us</td></tr>
+<tr><td>Contact forms</td><td>Submitting opens your own email app with a pre-filled message. Nothing reaches us unless you send it. If you do, we receive your email address and message</td></tr>
+<tr><td>Newsletter form</td><td>Not open at the moment, so nothing is collected</td></tr>
+<tr><td>Google Fonts</td><td>In use. Your browser requests fonts from Google, so Google receives technical data such as your IP address</td></tr>
+<tr><td>Web hosting</td><td>Our hosting provider may keep standard server logs, such as IP address and pages requested</td></tr>
+<tr><td>Analytics (such as Google Analytics)</td><td>Not in use at the moment</td></tr>
+<tr><td>Advertising (such as Google AdSense)</td><td>Not in use at the moment</td></tr></table>
+<h2>Services that may be added in the future</h2>
+<p>We may later add the following. If we do, this policy will be updated first, and where the law requires it we will ask for your consent before non-essential cookies are used.</p>
+<ul><li><b>Contact and newsletter forms.</b> If connected to an email or form service, we would receive the details you submit (name, email address, subject and message) and use them only to reply or to send what you asked for. Those services would process the data for us.</li>
+<li><b>Analytics.</b> Tools such as Google Analytics collect information about how visitors use a site, such as pages viewed, approximate location, device and browser type. We would use it to improve the site.</li>
+<li><b>Advertising.</b> If we show ads through Google AdSense, third-party vendors including Google use cookies to serve ads based on your previous visits to this and other websites. Google's use of advertising cookies enables it and its partners to serve ads to you based on your visit to this site and other sites on the internet.</li></ul>
+<h2>Managing cookies and ad choices</h2>
+<p>Most browsers let you view, block or delete cookies in their settings (for example in Chrome, Safari, Firefox or Edge), and private browsing limits what is kept. If advertising is added, you will be able to opt out of personalized advertising at <a href="https://adssettings.google.com" rel="noopener">Google Ads Settings</a> or at <a href="https://www.aboutads.info" rel="noopener">aboutads.info</a>. You can also block or delete cookies in your browser settings, though some sites may work less well. If Google Analytics is added, Google offers a browser add-on to opt out.</p>
+<h2>How we handle information you send us</h2>
+<p>If you email us, we use your name, email address and message only to reply and to improve the site. Emails are kept in our email account for as long as needed for that purpose, and we then delete them. We do not sell personal information. We share it only if the law requires. No method of sending or storing data is completely secure, so please avoid sending sensitive personal details.</p>
+<h2>Your rights</h2>
+<p>Depending on where you live, you may have rights over your personal data. In the UK and EU (UK GDPR and GDPR) these include access, correction, deletion, restriction and objection, and the right to complain to a regulator such as the UK Information Commissioner's Office. Some US states give similar rights, such as the right to know, delete or opt out of certain sharing. To make a request, use the <a href="#p-contact">Contact page</a>.</p>
+<h2>Children</h2>
+<p>This site is for a general audience and is not directed at children under 13. We do not knowingly collect personal information from children.</p>
+<h2>Links to other sites</h2>
+<p>Our pages may link to other websites. We do not control their privacy practices, so please read their policies.</p>
+<h2>Changes and contact</h2>
+<p>We may update this policy and will change the date above when we do. Questions can be sent through the <a href="#p-contact">Contact page</a> or to ${ph}.</p>` },
+disclaimer: { title: "Disclaimer", desc: "Important information about the estimates, calculators and guides on Style & Home Hub, which are general information and not professional advice.",
+dek: "Last updated: " + SITE.updated + ". Please read before relying on any calculator or guide.",
+body: `<h2>General information only</h2>
+<p>The content on Style & Home Hub is provided for general informational and educational purposes. We aim to be accurate and helpful, but we make no guarantee that everything is complete, current or free from errors.</p>
+<h2>Calculators and guides give estimates</h2>
+<p>Our paint, flooring and curtain calculators, the size converter and the worked examples produce approximate results based on common assumptions. Check the numbers independently, and confirm them with the product label, manufacturer or supplier whenever accuracy matters, such as before buying materials or expensive clothing.</p>
+<h2>Not professional advice</h2>
+<p>Nothing on this site is professional, legal, financial, medical, construction, electrical, structural or other regulated advice. For work that affects safety, building regulations or your property, consult a qualified professional.</p>
+<h2>Results vary</h2>
+<p>Product details, measurements, clothing sizes and home-improvement requirements can differ by manufacturer, property, region and individual circumstances. Paint coverage, flooring pack sizes, brand size charts and fitting preferences all vary, and US and UK conventions are not always the same.</p>
+<h2>Your responsibility</h2>
+<p>You are responsible for your own decisions. Follow product instructions and safety guidance, use suitable equipment, and get professional help where needed. We are not responsible for decisions made solely on the basis of information on this website.</p>
+<h2>Limits of liability</h2>
+<p>To the fullest extent permitted by law, we are not liable for any loss or damage arising from use of, or reliance on, this website. Nothing in this disclaimer limits any liability that cannot be excluded by law.</p>
+<h2>Third-party content</h2>
+<p>Brand and product names are mentioned only as examples. We are not affiliated with them. We are not responsible for the content of external websites we link to.</p>
+<p>Questions about this disclaimer can go through the <a href="#p-contact">Contact page</a>.</p>` },
+terms: { title: "Terms of Use", desc: "Terms of Use for Style & Home Hub: how you may use the website, our content, external links and the limits of our responsibility.",
+dek: "Last updated: " + SITE.updated + ". Plain-language rules for using this website.",
+body: `<h2>Using the website</h2>
+<p>By using Style & Home Hub you agree to these terms. If you do not agree, please do not use the site. You may use the site for your own personal, non-commercial purposes.</p>
+<h2>Content and ownership</h2>
+<p>Unless stated otherwise, the text, calculators, illustrations and layout on this site belong to the site owner and are protected by copyright. You may share links to our pages and quote short excerpts with a clear credit and link back. Please do not copy, republish or sell substantial parts of the site without permission. Brand and product names belong to their owners.</p>
+<h2>Acceptable use</h2>
+<p>Please do not use the site to break the law, to interfere with its operation, to try to gain unauthorized access, to send malicious code, or to collect content in bulk with automated tools in a way that harms the site.</p>
+<h2>External links</h2>
+<p>Some pages may link to other websites. We do not control them and are not responsible for their content or practices. A link is not an endorsement.</p>
+<h2>Informational content</h2>
+<p>Our guides and calculators give general information and estimates, not professional advice. Please read our <a href="#p-disclaimer">Disclaimer</a> and check important measurements yourself.</p>
+<h2>Limitation of liability</h2>
+<p>The site is provided "as is" and "as available". To the fullest extent permitted by law, we are not liable for any loss or damage arising from your use of, or reliance on, the site. Nothing in these terms limits any liability that cannot be excluded by law.</p>
+<h2>Changes</h2>
+<p>We may change, suspend or remove parts of the site or its content at any time, and may update these terms. The date above shows the latest update. Continuing to use the site means you accept the updated terms.</p>
+<h2>Contact</h2>
+<p>Questions about these terms can be sent to ${ph} or through the <a href="#p-contact">Contact page</a>. See also our <a href="#p-privacy">Privacy Policy</a>.</p>` }
+};
+document.addEventListener("submit", e => {
+  if (e.target.id !== "pgForm") return;
+  e.preventDefault();
+  const f = e.target, m = document.getElementById("pgMsg"), d = Object.fromEntries(new FormData(f));
+  const say = (t, ok) => { m.style.color = ok ? "var(--teal)" : "var(--plum)"; m.textContent = t; };
+  if (!d.name.trim() || !/^\S+@\S+\.\S+$/.test(d.email) || !d.subject.trim() || !d.message.trim()) return say("Please complete all four fields and enter a valid email address.", false);
+  if (!SITE.formEndpoint) { location.href = "mailto:" + SITE.email + "?subject=" + encodeURIComponent(d.subject) + "&body=" + encodeURIComponent("Name: " + d.name + "\nEmail: " + d.email + "\n\n" + d.message); return say("Your email app should open with your message ready to send. If it does not, please email " + SITE.email + " directly.", true); }
+  fetch(SITE.formEndpoint, { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(d) })
+    .then(r => { if (!r.ok) throw 0; say("Thank you. Your message has been sent.", true); f.reset(); })
+    .catch(() => say("Sorry, the message could not be sent. Please email us instead.", false));
+});
+</script>
 <script id="articles-ui">
 (function(){
   const $=id=>document.getElementById(id);let f="all";
   const fig=x=>`<figure class="fig"><svg viewBox="0 0 400 250" role="img" aria-label="${x[1]}"><use href="#${x[0]}" width="400" height="250"/></svg><figcaption>${x[2]}</figcaption></figure>`;
+  const related=a=>a.related?"<h2>Related guides and tools</h2><ul>"+a.related.map(x=>`<li><a href="${x[0]}">${x[1]}</a></li>`).join("")+"</ul>":"";
   const withFigs=a=>{const F=a.figs||[],i=a.body.indexOf("</p>")+4;return a.body.slice(0,i)+(F[0]?fig(F[0]):"")+a.body.slice(i)+(F[1]?fig(F[1]):"")};
   const grid=$("artGrid"),names={all:"All",home:"Home DIY",wear:"Garments"};
   function cards(){grid.innerHTML=ARTICLES.filter(a=>f==="all"||a.cat===f).map((a,i)=>`<a class="art k" href="#a-${a.id}" data-t="${a.title.toLowerCase()} ${a.dek.toLowerCase()}"><div class="ph fg"><svg viewBox="0 0 400 250" role="img" aria-label="${a.figs[0][1]}"><use href="#${a.figs[0][0]}" width="400" height="250"/></svg></div><span class="tag${a.cat==="wear"?" g":""}">${a.tag}</span><h3>${a.title}</h3><p>${a.dek}</p><span class="meta">${a.min} min read</span></a>`).join("")}
   function chips(){const el=$("filt");el.innerHTML="";Object.keys(names).forEach(k=>{const b=document.createElement("button");b.type="button";b.textContent=names[k];b.setAttribute("aria-pressed",k===f);b.onclick=()=>{f=k;chips();cards()};el.appendChild(b)})}
+  const DEF_TITLE=document.title,desc=document.querySelector("meta[name=description]"),DEF_DESC=desc.content;
+  const ld=$("ld");
+  function setLD(crumbs){const base=location.href.split("#")[0],data=[{"@context":"https://schema.org","@type":"WebSite",name:SITE.name,description:DEF_DESC,inLanguage:"en",url:base,publisher:{"@type":"Organization",name:SITE.name,email:SITE.email,url:base}}];
+    if(crumbs.length)data.push({"@context":"https://schema.org","@type":"BreadcrumbList",itemListElement:crumbs.map((c,i)=>({"@type":"ListItem",position:i+1,name:c[0],item:base+c[1]}))});ld.textContent=JSON.stringify(data)}
   function route(){
-    const m=location.hash.match(/^#a-(.+)$/),a=m&&ARTICLES.find(x=>x.id===m[1]),r=$("rd");
-    if(a){$("rdBody").innerHTML=`<span class="tag${a.cat==="wear"?" g":""}">${a.tag}</span><h1>${a.title}</h1><p class="dek">${a.dek}</p>${withFigs(a)}<p style="color:var(--mute);font-size:14px;margin-top:32px">Figures here are general guidance. Always check the product label or maker's chart.</p>`;r.hidden=false;r.scrollTop=0;document.body.style.overflow="hidden";document.title=a.title+" – Style & Home Hub"}
-    else{r.hidden=true;document.body.style.overflow="";document.title="Style & Home Hub – DIY calculators and clothing size guides"}
+    const r=$("rd"),h=location.hash,ma=h.match(/^#a-(.+)$/),mp=h.match(/^#p-(.+)$/),a=ma&&ARTICLES.find(x=>x.id===ma[1]),p=mp&&PAGES[mp[1]];
+    const open=(label,back,href,title,d)=>{r.setAttribute("aria-label",label);$("rdBack").textContent=back;$("rdBack").href=href;r.hidden=false;r.scrollTop=0;document.body.style.overflow="hidden";document.title=title+" – Style & Home Hub";desc.content=d;$("rdBody").tabIndex=-1;$("rdBody").focus({preventScroll:true})};
+    if(a){$("rdBody").innerHTML=`<span class="tag${a.cat==="wear"?" g":""}">${a.tag}</span><h1>${a.title}</h1><p class="dek">${a.dek}</p>${withFigs(a)}${related(a)}<p style="color:var(--mute);font-size:14px;margin-top:32px">Figures here are general guidance. Always check the product label or maker's chart.</p>`;open(a.title,"Back to articles","#articles",a.title,a.dek);setLD([["Home","#top"],["Guides and articles","#articles"],[a.title,"#a-"+a.id]])}
+    else if(p){$("rdBody").innerHTML=`<h1>${p.title}</h1><p class="dek">${p.dek}</p>${p.body}<p class="pgback"><a class="btn" href="#top">Back to Home</a></p>`;open(p.title,"Back to Home","#top",p.title,p.desc);setLD([["Home","#top"],[p.title,"#p-"+mp[1]]])}
+    else{r.hidden=true;document.body.style.overflow="";document.title=DEF_TITLE;desc.content=DEF_DESC;setLD([])}
   }
   chips();cards();addEventListener("hashchange",route);route();
 })();
@@ -640,7 +778,7 @@ const PHOTO_SLOTS = [
 ];
 PHOTO_SLOTS.forEach(s => {
   const img = new Image();
-  img.onload = () => { const el = document.getElementById(s.id); if (!el) return; img.alt = s.alt; img.width = s.w; img.height = s.h; img.decoding = "async"; el.innerHTML = ""; el.appendChild(img); };
+  img.onload = () => { const el = document.getElementById(s.id); if (!el) return; img.alt = s.alt; img.width = s.w; img.height = s.h; img.decoding = "async"; img.loading = s.id === "heroArt" ? "eager" : "lazy"; el.innerHTML = ""; el.appendChild(img); };
   img.src = s.src;
 });
 </script>
@@ -667,11 +805,11 @@ document.querySelectorAll('.k').forEach(e=>{const m=!s||(e.dataset.t+' '+e.textC
 document.querySelectorAll('.art').forEach(e=>{if(e.style.display!='none')arts++});
 $('none').style.display=(s&&!hit)?'block':'none';
 if(s&&hit)location.hash='#tools'};
-$('nf').onsubmit=e=>{e.preventDefault();e.target.innerHTML='<b>Thanks. Subscription confirmed (demo form, nothing is sent).</b>'};
+$('nf').onsubmit=e=>{e.preventDefault();e.target.innerHTML='<b>Newsletter sign-up is not open yet, so nothing was saved. Please check back soon.</b>'};
 // contact
 $('cf2').onsubmit=e=>{e.preventDefault();const m=$('msg');
 if(!$('nm').value.trim()||!/^\S+@\S+\.\S+$/.test($('em').value)||!$('ms').value.trim()){m.style.color='var(--plum)';m.textContent='Add your name, a valid email address and a message.';return}
-m.style.color='var(--teal)';m.textContent='Thanks. Your message is ready to send (demo form: nothing is transmitted).';e.target.reset()};
+m.style.color='var(--teal)';m.textContent='Your email app should open with your message ready to send. If it does not, please email '+SITE.email+' directly.';location.href='mailto:'+SITE.email+'?subject='+encodeURIComponent('Message from Style & Home Hub')+'&body='+encodeURIComponent('Name: '+$('nm').value+'\nEmail: '+$('em').value+'\n\n'+$('ms').value);e.target.reset()};
 </script>
 </body>
 </html>
