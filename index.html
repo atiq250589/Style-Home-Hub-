@@ -176,9 +176,35 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 .rd p,.rd li{font-size:17px;line-height:1.7}.rd li{margin-bottom:6px}.rd a{color:var(--teal)}
 .rd table{display:block;overflow-x:auto;border-collapse:collapse;margin:16px 0;font-size:15px}.rd th,.rd td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top}.rd th{background:var(--card)}
 .filt{margin-bottom:24px;max-width:420px}
+
+/* images */
+.fo{fill:var(--bg);stroke:var(--ink);stroke-width:2}.fl{fill:none;stroke:var(--ink);stroke-width:2}.fdr{fill:var(--sun);stroke:var(--ink);stroke-width:1.5}.fwn{fill:#9fd3d6;stroke:var(--ink);stroke-width:1.5}
+.fa{fill:none;stroke:var(--teal);stroke-width:2.2}.fdash{stroke-dasharray:6 4}.ft{fill:var(--ink);font:600 13px "Instrument Sans",system-ui,sans-serif}.fts{fill:var(--mute);font:500 11px "Instrument Sans",system-ui,sans-serif}.fcw{fill:none;stroke:#fff;stroke-width:2.5;opacity:.9}
+.fig{margin:22px 0}.fig svg,.tfig{display:block;width:100%;height:auto;background:var(--card);border:1px solid var(--line);border-radius:16px}.fig figcaption{font-size:14px;color:var(--mute);margin-top:8px}
+.tfig{margin-bottom:16px;background:var(--bg)}
+.hero-art{max-width:520px;margin-top:30px;border-radius:18px;overflow:hidden}.hero-art svg,.hero-art img{display:block;width:100%;height:auto;background:var(--card);border:1px solid var(--line);border-radius:18px}
+.cat.h:before,.cat.g:before{display:none}.cimgw{height:150px;margin-bottom:26px;overflow:hidden}.cimgw svg,.cimgw img{display:block;width:100%;height:100%;object-fit:cover}
+.ph.fg{background:var(--card);border:1px solid var(--line)}.ph.fg:after{display:none}.ph.fg svg{display:block;width:100%;height:100%}
+.figrow{display:grid;gap:16px;max-width:760px;margin:32px auto 0}.calcfig{max-width:560px;margin:28px auto 0}
+@media(min-width:760px){.figrow{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs>
+<symbol id="fig-room" viewBox="0 0 400 250"><rect x="70" y="35" width="250" height="140" class="fo"/><rect x="150" y="171" width="44" height="8" class="fdr"/><rect x="66" y="70" width="8" height="50" class="fwn"/><path class="fa" d="M70 205h250M70 199v12M320 199v12M40 35v140M34 35h12M34 175h12M360 50v110M354 50h12M354 160h12"/><text x="195" y="230" class="ft" text-anchor="middle">Length</text><text x="22" y="110" class="ft" text-anchor="middle" transform="rotate(-90 22 110)">Width</text><text x="360" y="182" class="ft" text-anchor="middle">Height</text><text x="195" y="110" class="fts" text-anchor="middle">Room plan with door and window</text></symbol>
+<symbol id="fig-paint" viewBox="0 0 400 250"><rect x="50" y="25" width="300" height="170" class="fo"/><rect x="80" y="95" width="56" height="100" class="fdr"/><rect x="210" y="65" width="90" height="60" class="fwn"/><path class="fa" d="M50 215h300M50 209v12M350 209v12"/><text x="108" y="150" class="ft" text-anchor="middle">Door</text><text x="255" y="100" class="ft" text-anchor="middle">Window</text><text x="200" y="240" class="ft" text-anchor="middle">Wall area = width x height, minus openings</text></symbol>
+<symbol id="fig-floor" viewBox="0 0 400 250"><rect x="25" y="45" width="150" height="110" class="fo"/><path class="fo" d="M225 45h130v55h-60v55h-70z"/><path class="fa fdash" d="M225 100h70"/><text x="100" y="105" class="ft" text-anchor="middle">L x W</text><text x="275" y="78" class="ft" text-anchor="middle">A</text><text x="260" y="132" class="ft" text-anchor="middle">B</text><text x="100" y="180" class="fts" text-anchor="middle">Simple room</text><text x="290" y="180" class="fts" text-anchor="middle">L-shaped room: A + B</text><text x="200" y="228" class="ft" text-anchor="middle">Add waste, then round up to whole packs</text></symbol>
+<symbol id="fig-curtain" viewBox="0 0 400 250"><rect x="150" y="90" width="100" height="90" class="fwn"/><rect x="95" y="60" width="55" height="180" class="fo"/><rect x="250" y="60" width="55" height="180" class="fo"/><path class="fl" d="M80 60h240M60 240h280"/><path class="fa" d="M80 36h240M80 30v12M320 30v12M350 60v180M344 60h12M344 240h12"/><text x="200" y="22" class="ft" text-anchor="middle">Pole width (window plus overhang)</text><text x="378" y="155" class="ft" text-anchor="middle">Drop</text><text x="200" y="200" class="fts" text-anchor="middle">Sill</text></symbol>
+<symbol id="fig-organize" viewBox="0 0 400 250"><path class="fl" d="M20 220h360M30 95h150"/><rect x="30" y="150" width="160" height="30" class="fo"/><path class="fl" d="M36 180v40M184 180v40"/><rect x="50" y="190" width="45" height="30" class="fdr"/><rect x="100" y="190" width="45" height="30" class="fdr"/><rect x="250" y="40" width="110" height="180" class="fo"/><path class="fa" d="M258 85h94M258 150h94"/><rect x="45" y="68" width="20" height="27" class="fwn"/><rect x="70" y="78" width="20" height="17" class="fdr"/><text x="98" y="240" class="fts" text-anchor="middle">Under-bed boxes</text><text x="305" y="240" class="fts" text-anchor="middle">Double-hang rail</text><text x="105" y="58" class="fts" text-anchor="middle">Wall shelf</text></symbol>
+<symbol id="fig-wall" viewBox="0 0 400 250"><rect x="40" y="20" width="270" height="200" class="fo"/><rect x="90" y="50" width="60" height="80" class="fwn"/><rect x="160" y="50" width="50" height="50" class="fdr"/><rect x="160" y="108" width="50" height="45" class="fwn"/><rect x="220" y="60" width="60" height="70" class="fdr"/><path class="fa fdash" d="M40 130h270"/><path class="fa" d="M340 130v90M334 130h12M334 220h12"/><path class="fl" d="M30 220h310"/><text x="372" y="172" class="ft" text-anchor="middle">57 in</text><text x="372" y="190" class="fts" text-anchor="middle">145 cm</text><text x="175" y="242" class="ft" text-anchor="middle">Centre the display at eye level</text></symbol>
+<symbol id="fig-body" viewBox="0 0 400 250"><circle cx="150" cy="30" r="16" class="fo"/><path class="fo" d="M118 58Q150 50 182 58L178 115L188 160L182 235H160L150 175L140 235H118L112 160L122 115Z"/><path class="fa fdash" d="M116 72h68M120 108h60M110 138h80M140 47h20"/><path class="fa" d="M150 180v52"/><path class="fl fdash" d="M160 47h50M186 72h24M184 108h26M192 138h18M154 205h56"/><text x="215" y="51" class="ft">Neck</text><text x="215" y="76" class="ft">Bust / chest</text><text x="215" y="112" class="ft">Waist</text><text x="215" y="142" class="ft">Hips</text><text x="215" y="209" class="ft">Inseam</text></symbol>
+<symbol id="fig-dress" viewBox="0 0 400 250"><path class="fo" d="M120 25h14l16 24 16-24h14l-8 70 32 130H96l32-130z"/><path class="fa fdash" d="M130 70h40M128 95h44M118 135h64"/><path class="fa" d="M70 25v200M64 25h12M64 225h12"/><path class="fl fdash" d="M172 70h38M174 95h36M182 135h28"/><text x="48" y="130" class="ft" text-anchor="middle" transform="rotate(-90 48 130)">Length</text><text x="215" y="74" class="ft">Bust</text><text x="215" y="99" class="ft">Waist</text><text x="215" y="139" class="ft">Hips</text></symbol>
+<symbol id="fig-shirt" viewBox="0 0 400 250"><path class="fo" d="M150 40l25 12h50l25-12 55 45-25 30-25-18v113H145V97l-25 18-25-30z"/><path class="fa" d="M175 30h50M175 24v12M225 24v12M145 140h110M145 134v12M255 134v12"/><path class="fa fdash" d="M200 52L100 100"/><text x="200" y="18" class="ft" text-anchor="middle">Collar</text><text x="200" y="132" class="ft" text-anchor="middle">Chest</text><text x="118" y="70" class="ft" text-anchor="middle">Sleeve</text></symbol>
+<symbol id="fig-trouser" viewBox="0 0 400 250"><path class="fo" d="M145 45h110l10 175h-55l-10-115-10 115h-55z"/><path class="fa" d="M145 32h110M145 26v12M255 26v12M200 45v60M170 105v115M164 105h12M164 220h12M210 235h55"/><path class="fl fdash" d="M138 165h28"/><text x="200" y="18" class="ft" text-anchor="middle">Waist</text><text x="222" y="80" class="ft">Rise</text><text x="100" y="169" class="ft" text-anchor="middle">Inseam</text><text x="320" y="239" class="ft" text-anchor="middle">Leg opening</text></symbol>
+<symbol id="fig-sizes" viewBox="0 0 400 250"><text x="200" y="28" class="ft" text-anchor="middle">Women's sizes: typical equivalents</text><rect x="20" y="50" width="360" height="42" rx="8" class="fo"/><rect x="20" y="102" width="360" height="42" rx="8" class="fo"/><rect x="20" y="154" width="360" height="42" rx="8" class="fo"/><g class="ft"><text x="36" y="77">US</text><text x="36" y="129">UK</text><text x="36" y="181">EU</text><text x="130" y="77">2</text><text x="190" y="77">4</text><text x="250" y="77">6</text><text x="310" y="77">8</text><text x="356" y="77">10</text><text x="130" y="129">6</text><text x="190" y="129">8</text><text x="250" y="129">10</text><text x="310" y="129">12</text><text x="356" y="129">14</text><text x="130" y="181">34</text><text x="190" y="181">36</text><text x="250" y="181">38</text><text x="310" y="181">40</text><text x="356" y="181">42</text></g><text x="200" y="228" class="fts" text-anchor="middle">Brands vary, so always check their size chart</text></symbol>
+<symbol id="cat-home" viewBox="0 0 400 150"><rect width="400" height="150" fill="#0b6b6a"/><g class="fcw"><rect x="60" y="25" width="90" height="85"/><path d="M105 25v85M60 67h90M190 118h150v-28q0-14-14-14H204q-14 0-14 14zM205 76V56h120v20"/><path d="M30 138h340" stroke-width="10" stroke-dasharray="2 10"/></g></symbol>
+<symbol id="cat-wear" viewBox="0 0 400 150"><rect width="400" height="150" fill="#7d2452"/><g class="fcw"><path d="M200 34a8 8 0 1 1 8 8l-8 6v8M200 56L110 108H290z"/><path d="M30 138h340" stroke-width="10" stroke-dasharray="2 10"/></g></symbol>
+</defs></svg>
 <div class="util"><div class="w"><span>Free calculators and size guides for US and UK readers</span><span>US, UK and EU sizing</span></div></div>
 <header><div class="w bar">
 <a class="logo" href="#top"><i></i>Style &amp; Home Hub</a>
@@ -194,6 +220,7 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 <p>Practical calculators and size guides for US and UK homes and wardrobes, from how much paint a room needs to what a UK 12 is in EU sizing.</p>
 <a class="btn" href="#tools">Use the calculators</a><a class="btn alt" href="#articles">Read the guides</a>
 <p class="note">Free to use. No sign-up. Every tool works in US or UK units.</p>
+<div class="hero-art" id="heroArt"><svg viewBox="0 0 800 250" role="img" aria-label="Illustration of a room plan with length and width measurements beside a shirt with collar and chest measurements"><use href="#fig-room" width="400" height="250"/><use href="#fig-shirt" x="400" width="400" height="250"/></svg></div>
 </div>
 <div class="conv"><h2>Size converter</h2><small>Women's, men's and kids' clothing in US, UK and EU sizes</small>
 <div class="out" style="margin:18px 0"><div><b>8</b><span>US</span></div><div><b>12</b><span>UK</span></div><div><b>40</b><span>EU</span></div></div>
@@ -203,14 +230,14 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 <section id="categories" style="padding-top:8px"><div class="w">
 <div class="head"><div><h2>Two ways we help</h2><p>Pick a topic and start with the numbers.</p></div></div>
 <div class="cats">
-<div class="cat h"><h3>Home DIY</h3><ul>
+<div class="cat h"><div class="cimgw" id="catHome"><svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Line illustration of a window, sofa and measuring tape for Home DIY guides"><use href="#cat-home" width="400" height="150"/></svg></div><h3>Home DIY</h3><ul>
 <li class="k" data-t="room decoration"><a href="#articles">Room decoration</a></li>
 <li class="k" data-t="paint calculator"><a href="#paint">Paint calculator</a></li>
 <li class="k" data-t="flooring calculator"><a href="#tools">Flooring calculator</a></li>
 <li class="k" data-t="curtain measurement guide"><a href="#a-measure-windows-curtains">Curtain measurement guide</a></li>
 <li class="k" data-t="home organization"><a href="#a-small-bedroom-organization">Home organization</a></li>
 <li class="k" data-t="diy wall ideas"><a href="#a-diy-wall-ideas">DIY wall ideas</a></li></ul><a class="btn" href="#tools">Open home tools</a></div>
-<div class="cat g"><h3>Garments &amp; Clothing</h3><ul>
+<div class="cat g"><div class="cimgw" id="catWear"><svg viewBox="0 0 400 150" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Line illustration of a clothes hanger and measuring tape for clothing size guides"><use href="#cat-wear" width="400" height="150"/></svg></div><h3>Garments &amp; Clothing</h3><ul>
 <li class="k" data-t="size converter us uk eu clothing"><a href="#converter">US/UK/EU size converter</a></li>
 <li class="k" data-t="dress size guide"><a href="#a-womens-dress-sizes">Dress size guide</a></li>
 <li class="k" data-t="shirt size guide"><a href="#a-mens-shirt-sizes">Shirt size guide</a></li>
@@ -230,7 +257,9 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 <fieldset><legend>Number of windows</legend><div class="step"><button type="button" data-for="pcV" data-d="-1" aria-label="Fewer windows">−</button><input id="pcV" type="number" inputmode="numeric" min="0" value="2" aria-label="Number of windows"><button type="button" data-for="pcV" data-d="1" aria-label="More windows">+</button></div></fieldset>
 </div>
 <div class="pout"><div id="pcRes" aria-live="polite"></div><div class="warn" id="pcWarn"></div></div>
-</div></div></section>
+</div>
+<figure class="fig calcfig"><svg viewBox="0 0 400 250" role="img" aria-label="Wall diagram showing a door and a window area subtracted from the total wall area to find the paintable area"><use href="#fig-paint" width="400" height="250"/></svg><figcaption>Subtract door and window areas from the total wall area before estimating paint.</figcaption></figure>
+</div></section>
 
 <section id="converter"><div class="w">
 <div class="head"><div><h2>US, UK and EU size converter</h2><p>Choose women's, men's or kids' clothing, pick your size, and see it in the other systems.</p></div></div>
@@ -243,6 +272,7 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 <div class="ans" aria-live="polite"><p id="cvCtx"></p><b id="cvBig"></b><div class="cvall" id="cvAll"></div></div>
 <p class="cvnote" id="cvNote"></p>
 </div>
+<div class="figrow"><figure class="fig"><svg viewBox="0 0 400 250" role="img" aria-label="Chart of women's dress sizes showing US, UK and EU equivalents side by side"><use href="#fig-sizes" width="400" height="250"/></svg><figcaption>Typical women's equivalents: UK is usually US plus 4, EU usually US plus 32.</figcaption></figure><figure class="fig"><svg viewBox="0 0 400 250" role="img" aria-label="Body outline showing where to measure neck, bust or chest, waist, hips and inseam"><use href="#fig-body" width="400" height="250"/></svg><figcaption>Measure bust or chest, waist and hips before choosing a size.</figcaption></figure></div>
 <div class="cvx"><h3>How sizes differ between countries</h3>
 <p>US, UK and EU brands label the same body measurements differently. Women's sizes step up in twos, men's shirts use collar size, and kids' sizes follow age or height.</p>
 <p>These charts show typical equivalents. Brands vary, so check the maker's size chart when you are between sizes or buying fitted clothes.</p></div>
@@ -252,17 +282,17 @@ footer .cp{max-width:none;border-top:1px solid rgba(128,128,128,.35);margin-top:
 <div class="head"><div><h2>Featured tools</h2><p>Free and instant. Switch units to match how you measure.</p></div>
 <div class="seg" role="group" aria-label="Units"><button id="uf" aria-pressed="true">Feet · sq ft</button><button id="um" aria-pressed="false">Metres · m²</button></div></div>
 <div class="tools">
-<div class="tool k" data-t="paint calculator wall room"><h3>Paint calculator</h3>
+<div class="tool k" data-t="paint calculator wall room"><h3>Paint calculator</h3><svg class="tfig" viewBox="0 0 400 250" role="img" aria-label="Wall diagram showing a door and a window area subtracted from the total wall area to find the paintable area"><use href="#fig-paint" width="400" height="250"/></svg>
 <p style="color:var(--mute);margin:0 0 16px">Enter your room in feet and inches to estimate wall area and gallons of paint.</p>
 <a class="btn" href="#paint">Open paint calculator</a></div>
 
-<div class="tool k" data-t="flooring calculator floor laminate carpet"><h3>Flooring calculator</h3>
+<div class="tool k" data-t="flooring calculator floor laminate carpet"><h3>Flooring calculator</h3><svg class="tfig" viewBox="0 0 400 250" role="img" aria-label="Floor plans of a rectangular room and an L-shaped room split into two rectangles to calculate flooring area"><use href="#fig-floor" width="400" height="250"/></svg>
 <div class="row"><div><label>Length (<span class="u">ft</span>)</label><input id="fl" type="number" min="0" value="15"></div><div><label>Width (<span class="u">ft</span>)</label><input id="fw" type="number" min="0" value="11"></div>
 <div><label>Waste allowance</label><select id="fx"><option value="5">5% (straight)</option><option value="10" selected>10% (standard)</option><option value="15">15% (diagonal)</option></select></div>
 <div><label>Pack covers (<span class="a">sq ft</span>)</label><input id="fp" type="number" min="0" value="20"></div></div>
 <button class="btn" id="fb">Calculate flooring</button><div class="res" id="fr" aria-live="polite">Enter your room to see how much flooring to buy.</div></div>
 
-<div class="tool k" data-t="curtain measurement guide window track"><h3>Curtain measurement guide</h3>
+<div class="tool k" data-t="curtain measurement guide window track"><h3>Curtain measurement guide</h3><svg class="tfig" viewBox="0 0 400 250" role="img" aria-label="Window with a curtain pole extending past both sides and a labelled drop from pole to floor"><use href="#fig-curtain" width="400" height="250"/></svg>
 <div class="row"><div><label>Track or pole width (<span class="u">ft</span>)</label><input id="cw" type="number" min="0" step=".1" value="5"></div><div><label>Drop (<span class="u">ft</span>)</label><input id="cd" type="number" min="0" step=".1" value="7"></div>
 <div><label>Fullness</label><select id="cx"><option value="1.5">1.5× (light)</option><option value="2" selected>2× (standard)</option><option value="2.5">2.5× (luxe)</option></select></div><div><label>Pairs or single</label><select id="cp"><option value="2">Pair</option><option value="1">Single panel</option></select></div></div>
 <button class="btn" id="cb">Get measurements</button><div class="res" id="cr" aria-live="polite">Measure the track, not the window, then add fullness.</div></div>
@@ -451,7 +481,7 @@ const PaintCalculator = {
 <script id="articles-data">
 /* ARTICLES: add or edit entries here. cat is "home" or "wear". body is plain HTML. */
 const ARTICLES = [
-{id:"measure-room-painting",cat:"home",tag:"Home DIY · Painting",min:5,title:"How to Measure a Room for Painting",dek:"Work out wall area, subtract openings, and turn it into gallons or litres.",body:`
+{id:"measure-room-painting",figs:[["fig-room", "Top-down room plan showing length, width, door, window and wall height measurements for painting", "Measure the length and width along the walls, then the floor-to-ceiling height."], ["fig-paint", "Wall diagram showing a door and a window area subtracted from the total wall area to find the paintable area", "Subtract doors and windows from the total wall area before working out paint."]],cat:"home",tag:"Home DIY · Painting",min:5,title:"How to Measure a Room for Painting",dek:"Work out wall area, subtract openings, and turn it into gallons or litres.",body:`
 <p>Paint is sold by volume, but you buy it by area. The steps below get you from a tape measure to a sensible quantity. You can also use the <a href="#paint">paint calculator</a>.</p>
 <h2>What you need</h2><ul><li>Tape measure or laser measure</li><li>Notepad or phone</li><li>The coverage figure printed on the paint can you plan to buy</li></ul>
 <h2>Step by step</h2>
@@ -470,7 +500,7 @@ const ARTICLES = [
 <tr><td>Paint needed</td><td>2.1 gal, so buy 3 gal or 2 gal plus a quart</td><td>5.6 L, so buy 6 L</td></tr></table>
 <h2>Things that change the answer</h2>
 <p>Bare plaster or drywall, dark-to-light colour changes and rough textures all use more paint. Ceilings, skirting or baseboards, and trim are extra. Coverage figures on tins are best-case, so check yours and round up.</p>`},
-{id:"calculate-flooring",cat:"home",tag:"Home DIY · Flooring",min:5,title:"How to Calculate Flooring for a Room",dek:"Measure the floor, add a waste allowance, and round up to whole packs.",body:`
+{id:"calculate-flooring",figs:[["fig-floor", "Floor plans of a rectangular room and an L-shaped room split into two rectangles to calculate flooring area", "Split an L-shaped room into rectangles, calculate each area and add them together."]],cat:"home",tag:"Home DIY · Flooring",min:5,title:"How to Calculate Flooring for a Room",dek:"Measure the floor, add a waste allowance, and round up to whole packs.",body:`
 <p>Flooring is sold in packs that cover a fixed area, so the aim is total area plus waste, divided by pack coverage.</p>
 <h2>1. Measure the floor area</h2>
 <p>For a rectangular room, multiply length by width. For an L-shaped room, split it into rectangles, calculate each and add them. Include alcoves and doorways where flooring will run through. Leave out fitted cabinets, which are normally installed on top of the floor.</p>
@@ -485,7 +515,7 @@ const ARTICLES = [
 <h2>Before you order</h2>
 <ul><li>Buy everything in one go so the batch or dye lot matches.</li><li>Check whether you need underlay, trims or adhesive.</li><li>Allow an expansion gap at the walls if the product needs one.</li><li>Keep a spare pack for future repairs.</li></ul>
 <p>Stairs are measured separately, by tread and riser.</p>`},
-{id:"measure-windows-curtains",cat:"home",tag:"Home DIY · Curtains",min:5,title:"How to Measure Windows for Curtains",dek:"Choose the pole position, then work out width, drop and fullness.",body:`
+{id:"measure-windows-curtains",figs:[["fig-curtain", "Window with a curtain pole extending past both sides and a labelled drop from pole to floor", "Measure the pole width and the drop after the pole is fitted."]],cat:"home",tag:"Home DIY · Curtains",min:5,title:"How to Measure Windows for Curtains",dek:"Choose the pole position, then work out width, drop and fullness.",body:`
 <p>Measure after you have fitted the pole or track, not before. Use a steel tape measure and a stepladder.</p>
 <h2>Width</h2>
 <ol><li>Measure the window or recess width.</li><li>Extend the pole or track past each side, commonly 4 to 8 inches (10 to 20 cm), so the curtains clear the glass when open.</li><li>Measure the full pole or track length.</li><li>Multiply by the fullness you want: about 1.5× for a light look, 2× for standard, 2.5× for a fuller look. Heading styles differ, so check the maker's guidance.</li></ol>
@@ -496,7 +526,7 @@ const ARTICLES = [
 <p>A 48 in window with a 60 in pole and 2× fullness needs 120 in of finished width, or 60 in per curtain in a pair. In metric, a 160 cm track gives 320 cm total, or 160 cm per curtain. For a 215 cm floor-length drop, order a 213 to 214 cm curtain, plus any hem allowance the seller states.</p>
 <h2>Check</h2>
 <p>Measure the drop at both ends and the middle. Floors and ceilings are rarely level.</p>`},
-{id:"small-bedroom-organization",cat:"home",tag:"Home DIY · Organization",min:5,title:"Small Bedroom Organization Ideas",dek:"Practical ways to gain storage without buying furniture that overwhelms the room.",body:`
+{id:"small-bedroom-organization",figs:[["fig-organize", "Bedroom side view showing under-bed storage boxes, a double-hang wardrobe rail and a wall shelf", "Under-bed boxes, a double-hang rail and wall shelves add storage without using floor space."]],cat:"home",tag:"Home DIY · Organization",min:5,title:"Small Bedroom Organization Ideas",dek:"Practical ways to gain storage without buying furniture that overwhelms the room.",body:`
 <p>Start by taking everything out of one area, such as a drawer or the floor of the wardrobe. Keep what you use, and move seasonal or sentimental items elsewhere. Storage works best after you have less to store.</p>
 <h2>Ideas that work in tight spaces</h2>
 <table><tr><th>Problem</th><th>Fix</th><th>Measure first</th></tr>
@@ -509,7 +539,7 @@ const ARTICLES = [
 <ul><li><b>One in, one out.</b> Donate something when something new arrives.</li><li><b>Give everything a home,</b> including a small tray for keys, jewellery or chargers.</li><li><b>Rotate seasons.</b> Store off-season clothes in labelled boxes under the bed or on top of the wardrobe.</li><li><b>Fold upright</b> in drawers so you can see each item.</li></ul>
 <h2>Safety</h2>
 <p>Fix tall shelving to the wall. Anchor heavy shelves into studs or use wall fixings rated for the load, and keep sleeping areas clear of anything that could fall.</p>`},
-{id:"diy-wall-ideas",cat:"home",tag:"Home DIY · Walls",min:6,title:"DIY Wall Decoration Ideas",dek:"Five approachable projects, from gallery walls to simple panelling.",body:`
+{id:"diy-wall-ideas",figs:[["fig-wall", "Wall with a gallery arrangement of frames centred at eye level, about 57 inches or 145 centimetres from the floor", "Centre a gallery arrangement at about 57 in (145 cm) from the floor."]],cat:"home",tag:"Home DIY · Walls",min:6,title:"DIY Wall Decoration Ideas",dek:"Five approachable projects, from gallery walls to simple panelling.",body:`
 <h2>1. Gallery wall</h2>
 <p>Cut paper templates of each frame and tape them to the wall to test the layout. Hang the centre of the arrangement at about 57 in (145 cm) from the floor, and keep gaps of 2 to 3 in (5 to 8 cm) between frames.</p>
 <h2>2. Colour block or arch</h2>
@@ -522,7 +552,7 @@ const ARTICLES = [
 <p>Peel-and-stick wallpaper, adhesive hooks and leaning shelves avoid drilling. Test a small hidden patch first, since some paints lift when adhesive is removed.</p>
 <h2>Before you start</h2>
 <ul><li>Check for pipes and wires before drilling.</li><li>Wipe walls clean so paint and adhesive hold.</li><li>Measure twice, mark lightly in pencil, and check level.</li></ul>`},
-{id:"us-vs-uk-sizes",cat:"wear",tag:"Clothing · Sizes",min:5,title:"US vs UK Clothing Sizes",dek:"Where the numbers differ, where they match, and why you should still check the chart.",body:`
+{id:"us-vs-uk-sizes",figs:[["fig-sizes", "Chart of women's dress sizes showing US, UK and EU equivalents side by side", "Typical women's equivalents: UK is usually US plus 4, and EU is usually US plus 32."]],cat:"wear",tag:"Clothing · Sizes",min:5,title:"US vs UK Clothing Sizes",dek:"Where the numbers differ, where they match, and why you should still check the chart.",body:`
 <p>The same garment can carry a different number on each side of the Atlantic, though the differences follow simple patterns.</p>
 <h2>Women's clothing</h2>
 <p>UK sizes are usually four higher than US sizes, and EU sizes are usually 32 higher.</p>
@@ -533,7 +563,7 @@ const ARTICLES = [
 <p>US sizes follow age (2T, 3T, 4T, 5, 6). UK sizes usually list age or height, and EU sizes list height in centimetres.</p>
 <h2>Why numbers still mislead</h2>
 <p>Brands cut their sizes differently, and some make a given size larger than in the past. If a label and a size chart disagree, trust the chart and your own measurements. See <a href="#a-measure-yourself">how to measure yourself</a>, or use the <a href="#converter">size converter</a>.</p>`},
-{id:"measure-yourself",cat:"wear",tag:"Clothing · Measuring",min:5,title:"How to Measure Yourself for Clothes",dek:"The seven body measurements that answer most sizing questions.",body:`
+{id:"measure-yourself",figs:[["fig-body", "Body outline showing where to measure neck, bust or chest, waist, hips and inseam", "Where to place the tape for the main body measurements."]],cat:"wear",tag:"Clothing · Measuring",min:5,title:"How to Measure Yourself for Clothes",dek:"The seven body measurements that answer most sizing questions.",body:`
 <p>Use a soft tape measure and wear light, close-fitting clothing. Stand relaxed, keep the tape level with the floor, and keep it snug but not tight. A friend makes it more accurate.</p>
 <table><tr><th>Measurement</th><th>Where</th></tr>
 <tr><td>Bust or chest</td><td>Around the fullest part, under the arms and across the shoulder blades</td></tr>
@@ -546,7 +576,7 @@ const ARTICLES = [
 <h2>Tips</h2>
 <ul><li>Write down inches and centimetres. 1 inch is 2.54 cm.</li><li>Measure twice and use the larger figure if the two differ.</li><li>Re-measure if your weight or fitness has changed.</li><li>Compare your numbers with the brand's chart, since charts differ.</li></ul>
 <p>If you fall between two sizes, choose by the part that is hardest to alter, such as shoulders or hips, and get the rest tailored.</p>`},
-{id:"womens-dress-sizes",cat:"wear",tag:"Clothing · Dresses",min:6,title:"Women's Dress Size Guide",dek:"Convert US, UK and EU sizes and pick the right fit for the style.",body:`
+{id:"womens-dress-sizes",figs:[["fig-dress", "Dress outline showing bust, waist, hip and length measurements", "Compare your bust, waist and hip measurements with the brand's chart, and check the dress length."]],cat:"wear",tag:"Clothing · Dresses",min:6,title:"Women's Dress Size Guide",dek:"Convert US, UK and EU sizes and pick the right fit for the style.",body:`
 <h2>Size equivalents</h2>
 <table><tr><th>US</th><th>UK</th><th>EU</th></tr><tr><td>0</td><td>4</td><td>32</td></tr><tr><td>2</td><td>6</td><td>34</td></tr><tr><td>4</td><td>8</td><td>36</td></tr><tr><td>6</td><td>10</td><td>38</td></tr><tr><td>8</td><td>12</td><td>40</td></tr><tr><td>10</td><td>14</td><td>42</td></tr><tr><td>12</td><td>16</td><td>44</td></tr><tr><td>14</td><td>18</td><td>46</td></tr><tr><td>16</td><td>20</td><td>48</td></tr></table>
 <p>These are typical equivalents. Every brand publishes its own bust, waist and hip ranges for each size.</p>
@@ -556,7 +586,7 @@ const ARTICLES = [
 <h2>Fit by style</h2>
 <ul><li><b>Fitted or bodycon:</b> follow the chart closely. Stretch fabrics forgive more.</li><li><b>Wrap:</b> adjustable at the waist, so size by bust.</li><li><b>A-line or shift:</b> size by bust or shoulders.</li><li><b>Length:</b> measure from shoulder to hem and compare it with the listed length.</li></ul>
 <p>Check the return policy when ordering online, especially from a brand you have not bought before.</p>`},
-{id:"mens-shirt-sizes",cat:"wear",tag:"Clothing · Shirts",min:5,title:"Men's Shirt Size Guide",dek:"Collar, sleeve and fit explained, with US, UK and EU equivalents.",body:`
+{id:"mens-shirt-sizes",figs:[["fig-shirt", "Shirt outline showing collar, chest and sleeve length measurements", "Collar, chest and sleeve are the key shirt measurements."]],cat:"wear",tag:"Clothing · Shirts",min:5,title:"Men's Shirt Size Guide",dek:"Collar, sleeve and fit explained, with US, UK and EU equivalents.",body:`
 <p>Dress shirts are sized by collar and sleeve. Casual shirts usually use S, M, L and so on.</p>
 <h2>Collar sizes</h2>
 <table><tr><th>US / UK (in)</th><th>EU (cm)</th><th>Often sold as</th></tr><tr><td>14</td><td>36</td><td>S</td></tr><tr><td>14½</td><td>37</td><td>S</td></tr><tr><td>15</td><td>38</td><td>M</td></tr><tr><td>15½</td><td>39</td><td>M</td></tr><tr><td>16</td><td>41</td><td>L</td></tr><tr><td>16½</td><td>42</td><td>L</td></tr><tr><td>17</td><td>43</td><td>XL</td></tr><tr><td>17½</td><td>44</td><td>XL</td></tr></table>
@@ -566,7 +596,7 @@ const ARTICLES = [
 <h2>Choosing the fit</h2>
 <p><b>Slim</b> shirts are cut closer to the body, <b>regular</b> shirts allow more room, and <b>relaxed or classic</b> is the roomiest. If your chest is large for your collar size, look for regular fit.</p>
 <p>Button the collar and check that you can slide a finger inside. Cotton can shrink slightly, so read the care label and consider that when choosing. Convert other sizes with the <a href="#converter">size converter</a>.</p>`},
-{id:"measure-trousers",cat:"wear",tag:"Clothing · Trousers",min:5,title:"How to Measure for Trousers",dek:"Waist, inseam, rise and hips, plus how to convert between US, UK and EU.",body:`
+{id:"measure-trousers",figs:[["fig-trouser", "Trousers outline showing waist, rise, inseam and leg opening measurements", "The main trouser measurements to check on a pair that fits."]],cat:"wear",tag:"Clothing · Trousers",min:5,title:"How to Measure for Trousers",dek:"Waist, inseam, rise and hips, plus how to convert between US, UK and EU.",body:`
 <p>The most reliable method is to measure a pair that already fits you, laid flat. Otherwise use your body measurements.</p>
 <h2>Measurements you need</h2>
 <table><tr><th>Measurement</th><th>How</th></tr>
@@ -587,16 +617,32 @@ const ARTICLES = [
 <script id="articles-ui">
 (function(){
   const $=id=>document.getElementById(id);let f="all";
+  const fig=x=>`<figure class="fig"><svg viewBox="0 0 400 250" role="img" aria-label="${x[1]}"><use href="#${x[0]}" width="400" height="250"/></svg><figcaption>${x[2]}</figcaption></figure>`;
+  const withFigs=a=>{const F=a.figs||[],i=a.body.indexOf("</p>")+4;return a.body.slice(0,i)+(F[0]?fig(F[0]):"")+a.body.slice(i)+(F[1]?fig(F[1]):"")};
   const grid=$("artGrid"),names={all:"All",home:"Home DIY",wear:"Garments"};
-  function cards(){grid.innerHTML=ARTICLES.filter(a=>f==="all"||a.cat===f).map((a,i)=>`<a class="art k" href="#a-${a.id}" data-t="${a.title.toLowerCase()} ${a.dek.toLowerCase()}"><div class="ph p${i%6+1}" aria-hidden="true"></div><span class="tag${a.cat==="wear"?" g":""}">${a.tag}</span><h3>${a.title}</h3><p>${a.dek}</p><span class="meta">${a.min} min read</span></a>`).join("")}
+  function cards(){grid.innerHTML=ARTICLES.filter(a=>f==="all"||a.cat===f).map((a,i)=>`<a class="art k" href="#a-${a.id}" data-t="${a.title.toLowerCase()} ${a.dek.toLowerCase()}"><div class="ph fg"><svg viewBox="0 0 400 250" role="img" aria-label="${a.figs[0][1]}"><use href="#${a.figs[0][0]}" width="400" height="250"/></svg></div><span class="tag${a.cat==="wear"?" g":""}">${a.tag}</span><h3>${a.title}</h3><p>${a.dek}</p><span class="meta">${a.min} min read</span></a>`).join("")}
   function chips(){const el=$("filt");el.innerHTML="";Object.keys(names).forEach(k=>{const b=document.createElement("button");b.type="button";b.textContent=names[k];b.setAttribute("aria-pressed",k===f);b.onclick=()=>{f=k;chips();cards()};el.appendChild(b)})}
   function route(){
     const m=location.hash.match(/^#a-(.+)$/),a=m&&ARTICLES.find(x=>x.id===m[1]),r=$("rd");
-    if(a){$("rdBody").innerHTML=`<span class="tag${a.cat==="wear"?" g":""}">${a.tag}</span><h1>${a.title}</h1><p class="dek">${a.dek}</p>${a.body}<p style="color:var(--mute);font-size:14px;margin-top:32px">Figures here are general guidance. Always check the product label or maker's chart.</p>`;r.hidden=false;r.scrollTop=0;document.body.style.overflow="hidden";document.title=a.title+" – Style & Home Hub"}
+    if(a){$("rdBody").innerHTML=`<span class="tag${a.cat==="wear"?" g":""}">${a.tag}</span><h1>${a.title}</h1><p class="dek">${a.dek}</p>${withFigs(a)}<p style="color:var(--mute);font-size:14px;margin-top:32px">Figures here are general guidance. Always check the product label or maker's chart.</p>`;r.hidden=false;r.scrollTop=0;document.body.style.overflow="hidden";document.title=a.title+" – Style & Home Hub"}
     else{r.hidden=true;document.body.style.overflow="";document.title="Style & Home Hub – DIY calculators and clothing size guides"}
   }
   chips();cards();addEventListener("hashchange",route);route();
 })();
+</script>
+<script id="photo-slots">
+/* PHOTO SLOTS: upload your own licensed photos to an /images folder using these file names.
+   If a file exists it replaces the illustration; if not, the illustration stays. */
+const PHOTO_SLOTS = [
+  { id: "heroArt", src: "images/hero-room.jpg", w: 1200, h: 800, alt: "Bright living room being measured for paint and flooring" },
+  { id: "catHome", src: "images/home-diy.jpg", w: 800, h: 400, alt: "Freshly painted room with a tape measure and paint roller" },
+  { id: "catWear", src: "images/clothing-measuring.jpg", w: 800, h: 400, alt: "Tape measure and folded clothes for checking clothing sizes" }
+];
+PHOTO_SLOTS.forEach(s => {
+  const img = new Image();
+  img.onload = () => { const el = document.getElementById(s.id); if (!el) return; img.alt = s.alt; img.width = s.w; img.height = s.h; img.decoding = "async"; el.innerHTML = ""; el.appendChild(img); };
+  img.src = s.src;
+});
 </script>
 <script>
 const $=id=>document.getElementById(id);
